@@ -1,0 +1,7 @@
+Application/Runtime/
+Application/Common/Conf/
+ThinkPHP/
+phpmyadmin/
+UCenter/
+
+.htaccess
