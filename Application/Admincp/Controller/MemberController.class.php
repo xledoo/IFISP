@@ -5,9 +5,7 @@ class MemberController extends PublicController {
 
     public function index(){
     	$members	=	M('member')->select();
-
     	$this->assign('members', $members);
-
     	$this->display();
     }
 
@@ -35,4 +33,13 @@ class MemberController extends PublicController {
     	// $this->error('非法提交!');
     }
 
+    //编辑用户
+    public function edit($id){
+    	echo('编辑页面');
+    }
+
+    //删除用户
+    public function del($id){
+    	M('member')->where('uid='.$id)->delete() ? $this->success('删除成功', U('Admincp/Member/index')) : $this->error('删除失败', U('Admincp/Member/index'));
+    }
 }
