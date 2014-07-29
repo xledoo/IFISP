@@ -7,10 +7,10 @@
 					<ul class="page-breadcrumb breadcrumb">
 						<li>
 							<i class="fa fa-home"></i>
-							<a href="{:U('admincp/member/index')}">用户管理模块</a>
+							<a href="{:U('Admincp/Member/index')}">用户管理模块</a>
 							<i class="fa fa-angle-right"></i>
 						</li>
-						<li><a href="javascript:;">添加新用户</a></li>
+						<li><a href="javascript:;">编辑用户</a></li>
 					</ul>
 					<!-- END PAGE TITLE & BREADCRUMB-->
 				</div>
@@ -22,21 +22,22 @@
     <div class="container margin-bottom-40">
     	<!--/row-->
         <div class="row">
-            <form action="{:U('Admincp/Member/doadd')}" id="register_form" method="post" class="form-horizontal">
-                <!-- <input type="hidden" name="formhash" value="{$formhash}"> -->
+            <form action="{:U('Admincp/Member/doEdit')}" id="register_form" method="post" class="form-horizontal">
+                
+				<input type="hidden" class="form-control" name="uid" readonly="readonly" tabindex="1" value="{$mem.uid}"/>
 				<div class="col-md-8">
 					<div class="row">
 						<div class="col-md-6">
 						<span>用户名</span>
 							<div class="input-group margin-bottom-20">							
 			                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="用户名" name="username" id="username"  >
+			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="用户名" name="username" id="username" value="{$mem.username}">
 			                </div>
 			                <span id="showtip" ></span>
 			                <span>密码</span>
 			            	<div class="input-group margin-bottom-20">			            	
 			                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-			                    <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="密码" name="password" id="password" >
+			                    <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="密码" name="password" id="password" value="{$mem.password}">
 			                </div>
 			                <!-- <span>用户组</span>
 							<div class="input-group margin-bottom-20">
@@ -53,17 +54,17 @@
 							<span>Email</span>
 							<div class="input-group margin-bottom-20">						
 			                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="邮箱" name="email" id="email" >
+			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="邮箱" name="email" id="email" value="{$mem.email}">
 			                </div>
 			                <span>手机号码</span>
 			            	<div class="input-group margin-bottom-20">
 			                    <span class="input-group-addon"><i class="fa fa-apple"></i></span>
-			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="手机号码" name="mobile" id="mobile" >
+			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="手机号码" name="mobile" id="mobile" value="{$mem.mobile}">
 			                </div>
 						</div>
 						<div class="col-md-12">
 							<div class="alert alert-danger" role="alert" id="message_box" style="display:none;"><span id="message_return"></span></div>
-						      <input type="submit" class="btn btn-info green col-md-12" name="submit" value="提交信息" id="register_submit">
+						      <button type="submit" class="btn btn-info green col-md-12" id="register_submit">提交信息</button>
                         </div>
 					</div>
 				</div>	            	

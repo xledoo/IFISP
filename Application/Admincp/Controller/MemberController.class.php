@@ -11,6 +11,7 @@ class MemberController extends PublicController {
 
     //添加用户操作
     public function doadd(){
+    	var_dump($_POST);die();
     	// if(formcheck('submit')){
     		$Model = D('member');
     		// $Model->where('uid='.$this->_G['member']['uid'])->find();
@@ -35,7 +36,19 @@ class MemberController extends PublicController {
 
     //编辑用户
     public function edit($id){
-    	echo('编辑页面');
+    	// var_dump($_POST);die();
+    	$members = M('member')->where('uid='.$id)->select();
+        $this->assign('mem',$members);
+    	$this->display();
+    }
+
+    //
+    public function doEdit(){
+    	// var_dump($_POST);die();
+    	$data = M("member")->where('username='.$_POST['username'])->save($_POST);
+        if($data){
+            $this->success('更新成功',U('Admincp/Member/index'));
+        }
     }
 
     //删除用户

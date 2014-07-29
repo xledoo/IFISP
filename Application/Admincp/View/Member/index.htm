@@ -42,7 +42,7 @@
 									<td>{$vo.regdate|date="Y-m-d",###}</td>
 									<td></td>
 									<td>
-										<a href="{:U('Admincp/Member/edit', array('id' => $vo['uid']))}" class="btn btn-danger btn-xs blue" ><i class="fa fa-edit"></i>编辑</a>
+										<a href="#" class="btn btn-danger btn-xs blue" ><i class="fa fa-edit"></i>编辑</a>
 										<a href="{:U('Admincp/Member/del', array('id' => $vo['uid']))}" class="btn btn-danger btn-xs"  onclick="return confirm('是否确定要删除 {$vo.username} 吗?');"><i class="fa fa-trash-o"></i> 删除</a>
 									</td>
 								</tr>
