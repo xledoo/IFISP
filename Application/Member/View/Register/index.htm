@@ -21,10 +21,10 @@
     	<!--/row-->
         <div class="row">
             <form action="{:U('Member/Register/index')}" id="register_form" method="post" class="form-horizontal">
-                <input type="hidden" name="formhash" value="{$formhash}">
+                <input type="hidden" name="formhash" value="{$formhash}" />
 				<div class="col-md-4">
 					<div class="row">
-						<img src="assets/img/photos/img4.jpg">
+						<img src="public/img/photos/img9.jpg">
 					</div>
 				</div>
 				<div class="col-md-8">
@@ -34,7 +34,6 @@
 			                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
 			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="用户名" name="username" id="username"  >
 			                </div>
-			                <span id="showtip" ></span>
 			            	<div class="input-group margin-bottom-20">
 			                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 			                    <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="密码" name="password" id="password" >
@@ -83,16 +82,21 @@ function ajax_check(id, val){
 				changeError(id);
 			} else {
 				changeSuccess(id);
-			}
-		} else {
-			if(val != jQuery('#password').val()){
-				message_box(true, '两次输入的密码不一致 请重新输入');
-				changeError(id);
-			} else {
-				changeSuccess(id);
+				message_box(0);
 			}
 		}
-
+		if(id == 'password2'){
+			if(val.length < 6 || val.length > 20){
+				message_box(true, '密码必须为 6-20 位的字符串');
+				changeError(id);
+			}else if(val != jQuery('#password').val()){
+				message_box(true, '两次输入的密码不一致 请重新输入');
+				changeError(id);
+			}else {
+				changeSuccess(id);
+				message_box(0);
+			}
+		}
 	} else {
 		jQuery.getJSON('index.php?m=member&c=register&a=ajax_check&type='+id+'&data='+val, function(json){
 			message_box(json['error'], json['message']);

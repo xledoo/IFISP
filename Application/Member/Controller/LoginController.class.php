@@ -54,4 +54,5 @@ class LoginController extends CommonController {
 
         $return['err'] ? $this->error($return['msg']) : $this->success($return['msg']);
     }
-}
+
+ }
