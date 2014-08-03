@@ -16,4 +16,6 @@ return array(
 	'DB_PREFIX' 			=> 'pre_', // 数据库表前缀
 	'COOKIE_PRE'			=> 'sE8t_',
 
+	'LOGIN_AUTH_NAME'		=>	'finabao'
+
 );
