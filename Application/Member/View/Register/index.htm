@@ -1,0 +1,166 @@
+<!-- BEGIN BREADCRUMBS -->   
+    <div class="row breadcrumbs margin-bottom-40">
+        <div class="container">
+            <div class="col-md-4 col-sm-4">
+                <h1>Register 会员注册</h1>
+            </div>
+            <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="{:U('Home/Index/index')}">首页</a></li>
+                        <li><a href="{:U('Member/Index/index')}">会员中心</a></li>
+                        <li class="active">会员注册</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+<!-- END BREADCRUMBS -->
+
+
+<!-- BEGIN CONTAINER -->   
+    <div class="container margin-bottom-40">
+    	<!--/row-->
+        <div class="row">
+            <form action="{:U('Member/Register/index')}" id="register_form" method="post" class="form-horizontal">
+                <input type="hidden" name="formhash" value="{$formhash}" />
+				<div class="col-md-4">
+					<div class="row">
+						<img src="public/img/photos/img9.jpg">
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group margin-bottom-20">
+			                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="用户名" name="username" id="username"  >
+			                </div>
+			            	<div class="input-group margin-bottom-20">
+			                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+			                    <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="密码" name="password" id="password" >
+
+			                </div>
+			                <div class="input-group margin-bottom-20">
+			                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+			                    <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="确认密码" name="password2" id="password2" >
+			                </div>
+						</div>
+						<div class="col-md-6">
+							<div class="input-group margin-bottom-20">
+			                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="邮箱" name="email" id="email" >
+			                </div>
+			            	<div class="input-group margin-bottom-20">
+			                    <span class="input-group-addon"><i class="fa fa-apple"></i></span>
+			                    <input type="text" class="form-control" onblur="ajax_check(this.id, this.value);" placeholder="手机号码" name="mobile" id="mobile" >
+			                </div>
+			                <div class="input-group margin-bottom-20">
+			                    <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
+			                    <input type="text" class="form-control sign" onblur="ajax_check(this.id, this.value);" placeholder="短信验证码" id="sign" name="sign" style="width:226px">
+			                    <div class="input-group-btn">
+                                    <button class="btn btn-info green" type="button" id="smscheck">短信验证码</button>
+                                </div>
+			                </div>
+						</div>
+						<div class="col-md-12">
+							<div class="alert alert-danger" role="alert" id="message_box" style="display:none;"><span id="message_return"></span></div>
+						      <input type="submit" class="btn btn-info green col-md-12" name="register" value="提交注册" id="register_submit">
+                        </div>
+					</div>
+				</div>	            	
+            </form>
+        </div>
+    </div>
+<!-- END CONTAINER -->
+
+
+<script type="text/javascript">
+function ajax_check(id, val){
+	if(id == 'password' || id == 'password2'){
+		if(id == 'password'){
+			if(val.length < 6 || val.length > 20){
+				message_box(true, '密码必须为 6-20 位的字符串');
+				changeError(id);
+			} else {
+				changeSuccess(id);
+				message_box(0);
+			}
+		}
+		if(id == 'password2'){
+			if(val.length < 6 || val.length > 20){
+				message_box(true, '密码必须为 6-20 位的字符串');
+				changeError(id);
+			}else if(val != jQuery('#password').val()){
+				message_box(true, '两次输入的密码不一致 请重新输入');
+				changeError(id);
+			}else {
+				changeSuccess(id);
+				message_box(0);
+			}
+		}
+	} else {
+		jQuery.getJSON('index.php?m=member&c=register&a=ajax_check&type='+id+'&data='+val, function(json){
+			message_box(json['error'], json['message']);
+			json['error'] == 0 ? changeSuccess(id) : changeError(id);
+		});
+	}
+	
+	return false;
+}
+
+function changeSuccess(id){
+    jQuery("#" + id).parent().removeClass('has-error');
+    jQuery("#" + id).parent().addClass('has-success');
+}
+function changeError(id){
+	jQuery("#" + id).parent().removeClass('has-success');
+	jQuery("#" + id).parent().addClass('has-error');
+}
+
+jQuery("#smscheck").click(function(j){
+    var err =   0;
+    jQuery(".form-control").each(function(i){
+        if(this.id && i < 6){
+            if(!this.parentNode.className.match(/ has-success/)){
+                jQuery(".input-group input").eq(i).focus();
+                err = 1;
+                return false;
+            }
+        }
+    });  
+
+    if(err == 0){
+        jQuery.getJSON('index.php?m=member&c=register&a=SMSend_verify&mobile='+jQuery('#mobile').val(), function(j){
+        	if(j['error'] == 0){
+        		jQuery('#smscheck').attr('disabled', 'disabled');
+        		jQuery('#smscheck').html('短信已发送');
+        	}
+        	message_box(j['error'], j['message']);
+        });
+    }      
+});
+
+function message_box(error, message){
+	error ? jQuery("#message_box").show() : jQuery("#message_box").hide();
+	jQuery('#message_return').html(message);
+}
+
+jQuery("#register_form").submit(function(){
+    var err =   0;
+	jQuery(".form-control").each(function(i){
+		if(this.id){
+			if(!this.parentNode.className.match(/ has-success/)){
+				jQuery(".input-group input").eq(i).focus();
+				err = 1;
+				return false;
+			}
+		}
+	});
+	// return false;
+});
+
+</script>
+
+
+</div>
+<!-- END PAGE CONTAINER -->
+

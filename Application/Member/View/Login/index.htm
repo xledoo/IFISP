@@ -1,0 +1,145 @@
+<!-- BEGIN BREADCRUMBS -->   
+<div class="row breadcrumbs margin-bottom-10">
+            <div class="container">
+                <div class="col-md-4 col-sm-4">
+                    <h1>Login 会员登录</h1>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="{:U('Home/Index/index')}">首页</a></li>
+                        <li><a href="{:U('Member/Index/index')}">会员中心</a></li>
+                        <li class="active">会员登录</li>
+                    </ul>
+                </div>
+            </div>
+</div>
+        <!-- END BREADCRUMBS -->
+<div class="row login">
+    <!-- BEGIN LOGIN -->
+<div class="col-md-7"></div>
+<div class="content col-md-4">
+    <!-- BEGIN LOGIN FORM -->
+    <form class="login-form" action="{:U('Member/Login/index')}" id="login_form" method="post">
+        <input type="hidden" name="formhash" value="{$formhash}" />
+        <h3 class="form-title">会员登录</h3>
+        <div class="alert alert-danger" role="alert" id="message_box" style="display:none;"><span id="message_return"></span></div>
+        <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label visible-ie8 visible-ie9">用户名</label>
+            <div class="input-icon">
+                <i class="fa fa-user"></i>
+                <input class="form-control placeholder-no-fix" type="text" onblur="ajax_check(this.id, this.value);" placeholder="输入用户名/电话号码/邮箱" name="username" id="username" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">密码</label>
+            <div class="input-icon">
+                <i class="fa fa-lock"></i>
+                <input class="form-control placeholder-no-fix" type="password" onblur="ajax_check(this.id, this.value);" placeholder="输入密码" name="password" id="password" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">安全码</label>
+            <div class="input-icon">
+                <i class="fa fa-key"></i>
+                <input class="form-control placeholder-no-fix" type="text" onblur="ajax_check(this.id, this.value);" placeholder="输入安全码" name="scode" id="scode"/>
+            </div>
+        </div>
+        <div class="form-actions row">
+            <div class="col-md-8">
+                <label class="checkbox">
+                    <input type="checkbox" name="remember" value="1"/> 记住密码 
+                </label>
+            </div>
+            <div class="col-md-4">
+                <div class="forget-password">
+                    <a href="javascript:;" id="forget-password">忘记密码</a>   
+                </div>
+            </div>
+            
+            <div style="padding:0px 16px 10px 16px;">
+                <input type="submit" class="btn blue btn-block" name="login" value="登 录" />
+            </div>
+        </div>
+        <div class="create-account">
+            <p>
+                 还没有注册 ?&nbsp;
+                <a href="{:U('Member/Register/index')}" id="register-btn">
+                     注册用户
+                </a>
+            </p>
+        </div>
+    </form>
+    <!-- END LOGIN FORM -->
+</div>
+<!-- END LOGIN -->
+<div class="col-md-1"></div>
+
+
+<script type="text/javascript">
+function ajax_check(id, val){
+    if(id == 'username'){
+        if(val.length < 6 || val.length > 16){
+            message_box(true, '用户名必须为 6-16 位的字符串');
+            changeError(id);
+        } else {
+            changeSuccess(id);
+            message_box(0);
+        }
+    }
+    if(id == 'password'){
+        if(val.length < 6 || val.length > 20){
+            message_box(true, '密码必须为 6-20 位的字符串');
+            changeError(id);
+        } else {
+            changeSuccess(id);
+            message_box(0);
+        }
+    }
+    if(id == 'scode'){
+        if(val.length < 6 || val.length > 20){
+            message_box(true, '安全码错误');
+            changeError(id);
+        } else {
+            changeSuccess(id);
+            message_box(0);
+        }
+    }
+    return false;
+}
+
+function changeSuccess(id){
+    jQuery("#" + id).parent().removeClass('has-error');
+    jQuery("#" + id).parent().addClass('has-success');
+}
+function changeError(id){
+    jQuery("#" + id).parent().removeClass('has-success');
+    jQuery("#" + id).parent().addClass('has-error');
+}
+
+function message_box(error, message){
+    error ? jQuery("#message_box").show() : jQuery("#message_box").hide();
+    jQuery('#message_return').html(message);
+}
+
+jQuery("#login_form").submit(function(){
+    var err =   0;
+    jQuery(".form-control").each(function(i){
+        if(this.id){
+            if(!this.parentNode.className.match(/ has-success/)){
+                jQuery(".form-control").eq(i).focus();
+                err = 1;
+                return false;
+            }
+        }
+    });
+    return false;
+});
+
+</script>
+
+
+</div>
+<!-- END PAGE CONTAINER -->
+
+
