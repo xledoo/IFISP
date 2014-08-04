@@ -273,6 +273,6 @@ function browserversion($type) {
 
 function loaducenter() {
     require_once APP_PATH.'./Common/Conf/config_ucenter.php';
-    require_once APP_PATH.'./Common/uc_client/client.php';
+    require_once APP_PATH.'./uc_client/client.php';
 }
 
