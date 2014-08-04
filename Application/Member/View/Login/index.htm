@@ -16,8 +16,8 @@
         <!-- END BREADCRUMBS -->
 <div class="row login">
     <!-- BEGIN LOGIN -->
-<div class="col-md-7"></div>
-<div class="content col-md-4">
+<div class="col-md-8"></div>
+<div class="content col-md-3">
     <!-- BEGIN LOGIN FORM -->
     <form class="login-form" action="{:U('Member/Login/index')}" id="login_form" method="post">
         <input type="hidden" name="formhash" value="{$formhash}" />
@@ -80,7 +80,7 @@
 function ajax_check(id, val){
     if(id == 'username'){
         if(val.length < 6 || val.length > 16){
-            message_box(true, '用户名必须为 6-16 位的字符串');
+            message_box(true, '用户名必须为 6-16 位的非中文字符串');
             changeError(id);
         } else {
             changeSuccess(id);
