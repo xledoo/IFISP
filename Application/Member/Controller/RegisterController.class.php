@@ -49,12 +49,12 @@ class RegisterController extends CommonController {
            if($return['err']){
                 $this->error($return['msg']);
            } else {
-                $this->success($return['msg']);
+                // $this->success($return['msg'],'Member/Login/login');
                 //R('Login/login',array(I('username'), I('password')));
                 // U('Login/login',array('username' => I('username'), 'password' => I('password')));
-                $this->redirect('Login/login', array('username' => I('username'), 'password' => I('password')), 5, '注册成功，正在登录...');
+                $this->redirect('Login/index', array('subname' => 'login','username' => I('username'), 'password' => I('password')), 5, '注册成功，正在登录...');
                 
-                echo "ho";
+                // echo "ho";
            }
         } else {
             $this->assign('formhash', formhash());
@@ -236,14 +236,12 @@ class RegisterController extends CommonController {
 
     function check_sign($data){
         $JSON['error']  =   1;
-        if(!strlen($sign) == 6 && preg_match("/^[0-9]$/", $sign)){
-            $JSON['error']      =   1;
-            $JSON['message']    =   '验证码格式错误'; 
-        }
-        if(M('member')->where('sign=%s', array($data))->find()){
+        $JSON['message']    =   '验证码错误';
+        if(M('member_checkmobile')->where('sign=%s', array($data))->find()){
             $JSON['error']      =   0;
             $JSON['message']    =   '可以注册';
         }
+        exit(json_encode($JSON));
     }
 
     public function ajax_check($type,$data){

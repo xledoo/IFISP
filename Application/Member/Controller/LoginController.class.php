@@ -18,7 +18,7 @@ class LoginController extends CommonController {
     public function logout(){
         session(C('LOGIN_AUTH_NAME'), null);
         cookie(C('LOGIN_AUTH_NAME'), null);
-        $this->success('退出成功', U('home/index/index'));
+        $this->success('退出成功', U('Home/Index/index'));
     }
 
     public function login($username, $password, $answer = ''){

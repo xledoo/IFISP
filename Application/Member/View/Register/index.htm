@@ -20,7 +20,7 @@
     <div class="container margin-bottom-40">
     	<!--/row-->
         <div class="row">
-            <form action="{:U('Member/Register/index')}" id="register_form" method="post" class="form-horizontal">
+            <form action="{:U('Member/Register/index')}" id="register_form" method="post">
                 <input type="hidden" name="formhash" value="{$formhash}" />
 				<div class="col-md-4">
 					<div class="row">
@@ -81,8 +81,8 @@ function ajax_check(id, val){
 				message_box(true, '密码必须为 6-20 位的字符串');
 				changeError(id);
 			} else {
-				changeSuccess(id);
 				message_box(0);
+				changeSuccess(id);
 			}
 		}
 		if(id == 'password2'){
@@ -93,8 +93,8 @@ function ajax_check(id, val){
 				message_box(true, '两次输入的密码不一致 请重新输入');
 				changeError(id);
 			}else {
-				changeSuccess(id);
 				message_box(0);
+				changeSuccess(id);
 			}
 		}
 	} else {
@@ -149,15 +149,16 @@ jQuery("#register_form").submit(function(){
 	jQuery(".form-control").each(function(i){
 		if(this.id){
 			if(!this.parentNode.className.match(/ has-success/)){
-				jQuery(".input-group input").eq(i).focus();
+				jQuery(".form-control").eq(i).focus();
 				err = 1;
 				return false;
 			}
 		}
 	});
-	// return false;
+	if (err == 1) {
+		return false;
+	}
 });
-
 </script>
 
 
