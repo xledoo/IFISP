@@ -49,7 +49,8 @@ class RegisterController extends CommonController {
            if($return['err']){
                 $this->error($return['msg']);
            } else {
-                A('Member/Login')->login(I('username'), I('password'));
+                $this->success($return['msg']);
+                // A('Member/Login')->login(I('username'), I('password'));
 
            }
         } else {
