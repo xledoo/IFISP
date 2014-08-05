@@ -133,7 +133,9 @@ jQuery("#login_form").submit(function(){
             }
         }
     });
-    return false;
+    if(err == 1){
+      return false;
+    }
 });
 
 </script>
