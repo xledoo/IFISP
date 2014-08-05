@@ -983,6 +983,7 @@ Content and content elements.
 }
 
 .quote-v1-inner {
+	background:#DB3A1B;
 	padding: 10px; 
 }
 
@@ -1613,8 +1614,8 @@ Blog Page
 }
 
 .blog-photo-stream li img {
-	width: 54px;
-	height: 54px;
+	width: 100px;
+	height: 40px;
 	padding: 2px; 
 	border: solid 1px #eee;
 }
@@ -2517,6 +2518,40 @@ li [class*=" fa-"].icon-large {
 }
 
 /* login & signup styles */
+.login{
+	margin:0 auto; 
+	width: 100%;
+	margin-bottom:10px;
+	background:url(../img/bg/1.jpg) center no-repeat ;
+}
+.login .content{
+	<!--width: 260px-->;
+	margin: 50px 0px 50px 0px;
+	background-color:#979797; 
+      -moz-opacity:0.9;  
+      -khtml-opacity: 0.9;  
+      opacity: 0.9; 
+}
+.login .content .login-form{
+	 padding: 0px;
+     margin: 0px;
+}
+.login .content h3 {
+  color: white;
+  text-align: center;
+}
+.login .content .input-icon {
+  border-left: 2px solid #35aa47 !important;
+}
+.login .content .forget-password{
+	padding-top:9px; 
+	/*margin-left:40px;*/
+}
+.login .content .checkbox{
+	font-size: 12px;
+}
+
+
 .login-signup-page{
 	padding: 50px auto 30px;
 }

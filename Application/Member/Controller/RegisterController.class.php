@@ -49,9 +49,12 @@ class RegisterController extends CommonController {
            if($return['err']){
                 $this->error($return['msg']);
            } else {
-                $this->success($return['msg']);
-                // A('Member/Login')->login(I('username'), I('password'));
-
+                // $this->success($return['msg'],'Member/Login/login');
+                //R('Login/login',array(I('username'), I('password')));
+                // U('Login/login',array('username' => I('username'), 'password' => I('password')));
+                $this->redirect('Login/index', array('subname' => 'login','username' => I('username'), 'password' => I('password')), 5, '注册成功，正在登录...');
+                
+                // echo "ho";
            }
         } else {
             $this->assign('formhash', formhash());
@@ -61,35 +64,35 @@ class RegisterController extends CommonController {
     }
 
     //注册验证
-    public function Submit(){
-        // var_dump($_POST);die();
-    	if(formcheck('register')){
-    		$Model	=	D('Member');
-    		if(!$Model->create()){
-    			exit($Model->getError());
-    		} else {
+    // public function Submit(){
+    //     // var_dump($_POST);die();
+    // 	if(formcheck('register')){
+    // 		$Model	=	D('Member');
+    // 		if(!$Model->create()){
+    // 			exit($Model->getError());
+    // 		} else {
 
-                //ucenter数据库添加
-                loaducenter();
+    //             //ucenter数据库添加
+    //             loaducenter();
 
 
-                //本地数据库添加
-                $data = array(
-                        'username'  =>  I('username'),
-                        'password'  =>  hashmd5(I('password')),
-                        'mobile'    =>  I('mobile'),
-                        'email'     =>  I('email'),
-                       'regdate'   =>  NOW_TIME
+    //             //本地数据库添加
+    //             $data = array(
+    //                     'username'  =>  I('username'),
+    //                     'password'  =>  hashmd5(I('password')),
+    //                     'mobile'    =>  I('mobile'),
+    //                     'email'     =>  I('email'),
+    //                    'regdate'   =>  NOW_TIME
 
-                        // 'sign'      =>  I('sign')
-                    );
+    //                     // 'sign'      =>  I('sign')
+    //                 );
 
-                $Model->add($data);
-                $this->success("通行证注册成功", U('Member/Index/index'));
-    		}
-    	}
-    	$this->error('非法提交!');
-    }
+    //             $Model->add($data);
+    //             $this->success("通行证注册成功", U('Member/Index/index'));
+    // 		}
+    // 	}
+    // 	$this->error('非法提交!');
+    // }
 
     //短信发送
     public function SMSend_verify($mobile){
@@ -148,8 +151,8 @@ class RegisterController extends CommonController {
     }
 
     function check_username($data){
+        loaducenter();
         $JSON['error']  =   1;
-
         $return =   uc_user_checkname($data);
         switch ($return) {
             case '-1':
@@ -168,9 +171,9 @@ class RegisterController extends CommonController {
             default:
                 break;
         }
-        if(!preg_match('/^[A-Za-z0-9]+$/', $data)){
+        if(!preg_match('/^[a-zA-Z0-9_]{6,15}$/', $data)){
             $JSON['error']      =   1;
-            $JSON['message']    =   '输入的用户名格式错误';           
+            $JSON['message']    =   '用户名必须为 6-16 位的非中文字符串';           
         }
         if(M('member')->where("username='%s'", array($data))->find()){
             $JSON['error']      =   1;
@@ -190,6 +193,7 @@ class RegisterController extends CommonController {
 
 
     function check_email($data){
+        loaducenter();
         $JSON['error']  =   1;
         $return = uc_user_checkemail($data);
         switch ($return) {
@@ -218,7 +222,7 @@ class RegisterController extends CommonController {
 
     function check_mobile($data){
         $JSON['error']  =   0;
-        if(!(strlen($data) == 11 && preg_match("/^1[3|5|8][0-9]\d{4,8}$/", $data))){
+        if(!(strlen($data) == 11 && preg_match("/^1[3|4|5|8][0-9]\d{4,8}$/", $data))){
             $JSON['error']      =   1;
             $JSON['message']    =   '手机号码格式错误';           
         }
@@ -232,14 +236,12 @@ class RegisterController extends CommonController {
 
     function check_sign($data){
         $JSON['error']  =   1;
-        if(!strlen($sign) == 6 && preg_match("/^[0-9]$/", $sign)){
-            $JSON['error']      =   1;
-            $JSON['message']    =   '验证码格式错误'; 
-        }
-        if(M('member')->where('sign=%s', array($data))->find()){
+        $JSON['message']    =   '验证码错误';
+        if(M('member_checkmobile')->where('sign=%s', array($data))->find()){
             $JSON['error']      =   0;
             $JSON['message']    =   '可以注册';
         }
+        exit(json_encode($JSON));
     }
 
     public function ajax_check($type,$data){
@@ -252,4 +254,3 @@ class RegisterController extends CommonController {
         
     }
 }
-

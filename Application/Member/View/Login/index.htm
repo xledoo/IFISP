@@ -16,7 +16,7 @@
         <!-- END BREADCRUMBS -->
 <div class="row login">
     <!-- BEGIN LOGIN -->
-<div class="col-md-7"></div>
+<div class="col-md-8"></div>
 <div class="content col-md-3">
     <!-- BEGIN LOGIN FORM -->
     <form class="login-form" action="{:U('Member/Login/index')}" id="login_form" method="post">
@@ -42,7 +42,7 @@
             <label class="control-label visible-ie8 visible-ie9">安全码</label>
             <div class="input-icon">
                 <i class="fa fa-key"></i>
-                <input class="form-control placeholder-no-fix" type="text" placeholder="输入安全码" name="scode"/>
+                <input class="form-control placeholder-no-fix" type="text" onblur="ajax_check(this.id, this.value);" placeholder="输入安全码" name="scode" id="scode"/>
             </div>
         </div>
         <div class="form-actions row">
@@ -73,26 +73,37 @@
     <!-- END LOGIN FORM -->
 </div>
 <!-- END LOGIN -->
-<div class="col-md-2"></div>
+<div class="col-md-1"></div>
 
 
 <script type="text/javascript">
 function ajax_check(id, val){
-    if(id == 'password' || id == 'password2'){
-        if(id == 'password'){
-            if(val.length < 6 || val.length > 20){
-                message_box(true, '密码必须为 6-20 位的字符串');
-                changeError(id);
-            } else {
-                changeSuccess(id);
-            }
+    if(id == 'username'){
+        if(val.length < 6 || val.length > 16){
+            message_box(true, '用户名必须为 6-16 位的非中文字符串');
+            changeError(id);
+        } else {
+            changeSuccess(id);
+            message_box(0);
         }
-
-    } else {
-        jQuery.getJSON('index.php?m=member&c=register&a=ajax_check&type='+id+'&data='+val, function(json){
-            message_box(json['error'], json['message']);
-            json['error'] == 0 ? changeSuccess(id) : changeError(id);
-        });
+    }
+    if(id == 'password'){
+        if(val.length < 6 || val.length > 20){
+            message_box(true, '密码必须为 6-20 位的字符串');
+            changeError(id);
+        } else {
+            changeSuccess(id);
+            message_box(0);
+        }
+    }
+    if(id == 'scode'){
+        if(val.length < 6 || val.length > 20){
+            message_box(true, '安全码错误');
+            changeError(id);
+        } else {
+            changeSuccess(id);
+            message_box(0);
+        }
     }
     return false;
 }
@@ -116,13 +127,15 @@ jQuery("#login_form").submit(function(){
     jQuery(".form-control").each(function(i){
         if(this.id){
             if(!this.parentNode.className.match(/ has-success/)){
-                jQuery(".input-group input").eq(i).focus();
+                jQuery(".form-control").eq(i).focus();
                 err = 1;
                 return false;
             }
         }
     });
-    // return false;
+    if(err == 1){
+      return false;
+    }
 });
 
 </script>
