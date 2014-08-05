@@ -26,14 +26,26 @@ class BaseController extends Controller{
 	初始化数据库配置项目
 	*/
 	function init_setting(){
-		$this->_G = M('common_setting')->cache()->select();
+		$setting = M('common_setting')->cache()->select();
+		foreach ($setting as $key => $value) {
+			$this->_G[$value['skey']]	=	$value['svalue'];
+		}
 	}
 
 	/*
 	用户登录信息
 	*/
 	function init_member(){
-		
+		$auth	=	session(C('LOGIN_AUTH_NAME')) ? session(C('LOGIN_AUTH_NAME')) : (cookie(C('LOGIN_AUTH_NAME')) ? cookie(C('LOGIN_AUTH_NAME')) : false);
+		if(!$auth){
+			$this->_G['member']['uid']	=	0;
+			return false;
+		}
+		$auth 	=	authcode($auth, 'DECODE', C('GLOBAL_AUTH_KEY'));
+		$auth 	=	unserialize($auth);
+		if(is_array($auth)){
+			$this->_G['member'] = D('member')->where("uid='%d' AND username='%s' AND password='%s'", array($auth[0], $auth[1], $auth[2]))->find() ?: false;
+		}
 	}
 }
 
