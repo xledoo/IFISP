@@ -50,13 +50,7 @@ class RegisterController extends BaseController {
            if($return['err']){
                 $this->error($return['msg']);
            } else {
-                // $this->success($return['msg'],U('Member/Login/login',array('username' => I('username'), 'password' => I('password'))));
-
-                R('Member/Login/login',array(I('username'), I('password')));
-                // U('Login/login',array('username' => I('username'), 'password' => I('password')));
-                // $this->redirect('Member/Login/login', array('username' => I('username'), 'password' => I('password')), 3, '注册成功，正在登录...');
-                
-                // echo "ho";
+                $this->redirect('Login/index', array('username' => I('username'), 'password' => I('password')), 3, '注册成功，正在登录...');
            }
         } else {
             $this->assign('formhash', formhash());
@@ -64,37 +58,6 @@ class RegisterController extends BaseController {
         } 
 
     }
-
-    //注册验证
-    // public function Submit(){
-    //     // var_dump($_POST);die();
-    // 	if(formcheck('register')){
-    // 		$Model	=	D('Member');
-    // 		if(!$Model->create()){
-    // 			exit($Model->getError());
-    // 		} else {
-
-    //             //ucenter数据库添加
-    //             loaducenter();
-
-
-    //             //本地数据库添加
-    //             $data = array(
-    //                     'username'  =>  I('username'),
-    //                     'password'  =>  hashmd5(I('password')),
-    //                     'mobile'    =>  I('mobile'),
-    //                     'email'     =>  I('email'),
-    //                    'regdate'   =>  NOW_TIME
-
-    //                     // 'sign'      =>  I('sign')
-    //                 );
-
-    //             $Model->add($data);
-    //             $this->success("通行证注册成功", U('Member/Index/index'));
-    // 		}
-    // 	}
-    // 	$this->error('非法提交!');
-    // }
 
     //短信发送
     public function SMSend_verify($mobile){
