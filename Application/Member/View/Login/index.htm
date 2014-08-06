@@ -105,7 +105,9 @@ function ajax_check(id, val){
             message_box(0);
         }
     }
-    return false;
+    if (err == 1) {
+        return false;
+    };
 }
 
 function changeSuccess(id){
@@ -133,9 +135,7 @@ jQuery("#login_form").submit(function(){
             }
         }
     });
-    if(err == 1){
-      return false;
-    }
+    return false;
 });
 
 </script>
