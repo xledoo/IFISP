@@ -96,18 +96,15 @@ function ajax_check(id, val){
             message_box(0);
         }
     }
-    if(id == 'scode'){
-        if(val.length < 6 || val.length > 20){
-            message_box(true, '安全码错误');
-            changeError(id);
-        } else {
-            changeSuccess(id);
-            message_box(0);
-        }
-    }
-    if (err == 1) {
-        return false;
-    };
+    // if(id == 'scode'){
+    //     if(val.length < 6 || val.length > 20){
+    //         message_box(true, '安全码错误');
+    //         changeError(id);
+    //     } else {
+    //         changeSuccess(id);
+    //         message_box(0);
+    //     }
+    // }
 }
 
 function changeSuccess(id){
@@ -127,7 +124,14 @@ function message_box(error, message){
 jQuery("#login_form").submit(function(){
     var err =   0;
     jQuery(".form-control").each(function(i){
-        if(this.id){
+        if(this.id == 'username'){
+            if(!this.parentNode.className.match(/ has-success/)){
+                jQuery(".form-control").eq(i).focus();
+                err = 1;
+                return false;
+            }
+        }
+        if(this.id == 'password'){
             if(!this.parentNode.className.match(/ has-success/)){
                 jQuery(".form-control").eq(i).focus();
                 err = 1;
@@ -135,7 +139,9 @@ jQuery("#login_form").submit(function(){
             }
         }
     });
-    return false;
+    if ( err == 1) {
+        return false;
+    }
 });
 
 </script>

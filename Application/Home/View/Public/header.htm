@@ -78,9 +78,15 @@
                     </div>
                     <div class="col-md-3 col-sm-3 login-reg-links">
                         <ul class="list-unstyled inline">
+                            <if condition="$_G['islogin']">
+                            <li><a href="{:U('Member/Login/index')}">{$_G['member']['username']}</a></li>
+                            <li class="sep"><span>|</span></li>
+                            <li><a href="{:U('Member/login/logout')}">退出登录</a></li>
+                            <else />
                             <li><a href="{:U('Member/Login/index')}">登录</a></li>
                             <li class="sep"><span>|</span></li>
                             <li><a href="{:U('Member/Register/index')}">注册</a></li>
+                            </if>
                         </ul>
                     </div>
                 </div>
@@ -188,26 +194,6 @@
                             <li><a href="page_services.html">抵押融资评估</a></li>
                             <li><a href="page_prices.html">融资额度标准</a></li>
                         </ul>
-                    </li>                       
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
-                            P2P网络借贷
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="feature_typography.html">个人融资中介服务</a></li>
-                            <li><a href="feature_buttons.html">个体工商户融资解决方案</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
-                            论坛
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="blog.html">文章首页</a></li>
-                            <li><a href="blog_item.html">文章列表</a></li>
-                        </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">
@@ -238,7 +224,7 @@
                         <div class="search-box">
                             <form action="#">
                                 <div class="input-group input-large">
-                                    <input class="form-control" type="text" placeholder="搜索">
+                                    <input class="form-control" type="text" placeholder="请输入要查询的信息搜索">
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn theme-btn">搜索</button>
                                     </span>
