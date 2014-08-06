@@ -1,7 +1,8 @@
 <?php
 namespace Member\Controller;
-use Think\Controller;
-class RegisterController extends CommonController {
+use Common\Controller\BaseController;
+
+class RegisterController extends BaseController {
 
     //注册页面
     public function index(){
@@ -49,10 +50,11 @@ class RegisterController extends CommonController {
            if($return['err']){
                 $this->error($return['msg']);
            } else {
-                // $this->success($return['msg'],'Member/Login/login');
-                //R('Login/login',array(I('username'), I('password')));
+                // $this->success($return['msg'],U('Member/Login/login',array('username' => I('username'), 'password' => I('password'))));
+
+                R('Member/Login/login',array(I('username'), I('password')));
                 // U('Login/login',array('username' => I('username'), 'password' => I('password')));
-                $this->redirect('Login/index', array('subname' => 'login','username' => I('username'), 'password' => I('password')), 5, '注册成功，正在登录...');
+                // $this->redirect('Member/Login/login', array('username' => I('username'), 'password' => I('password')), 3, '注册成功，正在登录...');
                 
                 // echo "ho";
            }
@@ -254,4 +256,3 @@ class RegisterController extends CommonController {
         
     }
 }
-

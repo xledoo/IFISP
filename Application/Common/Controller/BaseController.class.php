@@ -20,6 +20,7 @@ class BaseController extends Controller{
 	function _initialize(){
 		self::init_setting();
 		self::init_member();
+		$this->assign('_G', $this->_G);
 	}
 	
 	/*
@@ -39,12 +40,14 @@ class BaseController extends Controller{
 		$auth	=	session(C('LOGIN_AUTH_NAME')) ? session(C('LOGIN_AUTH_NAME')) : (cookie(C('LOGIN_AUTH_NAME')) ? cookie(C('LOGIN_AUTH_NAME')) : false);
 		if(!$auth){
 			$this->_G['member']['uid']	=	0;
+			$this->_G['islogin']		=	false;
 			return false;
 		}
 		$auth 	=	authcode($auth, 'DECODE', C('GLOBAL_AUTH_KEY'));
 		$auth 	=	unserialize($auth);
 		if(is_array($auth)){
 			$this->_G['member'] = D('member')->where("uid='%d' AND username='%s' AND password='%s'", array($auth[0], $auth[1], $auth[2]))->find() ?: false;
+			$this->_G['islogin']	=	true;
 		}
 	}
 }

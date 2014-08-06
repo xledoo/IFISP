@@ -1,17 +1,20 @@
 <?php
 namespace Member\Controller;
-use Think\Controller;
-class LoginController extends CommonController {
+use Common\Controller\BaseController;
+
+class LoginController extends BaseController {
 
     public function index(){
 
-
+        if($this->_G['member']['uid'] > 0){
+            $this->redirect('member/index/index');
+        }
         if(formcheck('login')){
-            
             $this->login(I('username'), I('password'));
         } else {
             $this->assign('formhash', formhash());
             $this->display();
+            // debug($this->_G);
         }
     }
 
@@ -49,10 +52,11 @@ class LoginController extends CommonController {
                 $auth = authcode(serialize($member), 'ENCODE', C('GLOBAL_AUTH_KEY'));
                 session(C('LOGIN_AUTH_NAME'), $auth);
                 cookie(C('LOGIN_AUTH_NAME'), $auth);
+                $return['msg']  =   '会员登录成功';
+                $return['err']  =   false;
                 break;
         }
-
-        $return['err'] ? $this->error($return['msg']) : $this->success($return['msg']);
+        $return['err'] == false ? $this->error($return['msg']) : $this->success($return['msg']);
     }
 
  }
