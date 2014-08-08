@@ -50,9 +50,7 @@ class RegisterController extends BaseController {
            if($return['err']){
                 $this->error($return['msg']);
            } else {
-               $this->success($return['msg'],U('Member/Login/index'));
-            //   R('Login/login',array(I('username'), I('password')));
-                // $this->redirect('Login/index', array('username' => I('username'), 'password' => I('password')), 3, '注册成功，正在登录...');
+                $this->redirect('Login/index', array('username' => I('username'), 'password' => I('password')), 3, '注册成功，正在登录...');
            }
         } else {
             $this->assign('formhash', formhash());

@@ -11,6 +11,7 @@ class LoginController extends BaseController {
         }
         if(formcheck('login')){
             $this->login(I('username'), I('password'));
+            $this->success('登录', U('Home/Index/index'));
         } else {
             $this->assign('formhash', formhash());
             $this->display();
