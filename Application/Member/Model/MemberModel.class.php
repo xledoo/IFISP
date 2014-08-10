@@ -13,7 +13,7 @@ class MemberModel extends Model {
 		array('email',		'require',	'Email必须！'), 
 		array('mobile',		'require',	'手机号码必须！'), 
 		array('sign',		'require',	'短信验证码必须！'), 
-		array('scode',		'require',	'安全码必须！'), 
+		// array('scode',		'require',	'安全码必须！'), 
 
 		// array('username', '/^[a-z0-9\x{4e00}-\x{9fa5}]{2,20}$/u' , '用户名格式错误' , 1 , 'regex' ,1),
 		// array('password', '/^([\d]+[a-zA-Z]+|[a-zA-Z]+[\d]+){1,}$/' , '密码格式错误' , 1 , 'regex' ,1),
