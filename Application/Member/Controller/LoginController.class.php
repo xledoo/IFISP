@@ -56,7 +56,7 @@ class LoginController extends BaseController {
                 $return['err']  =   false;
                 break;
         }
-        $return['err'] == false ? $this->error($return['msg']) : $this->success($return['msg']);
+        $return['err'] == false ? $this->success($return['msg'],U('member/index/index')) : $this->error($return['msg'],U('member/login/index'));
     }
 
  }
