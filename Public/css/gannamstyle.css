@@ -62,7 +62,7 @@ header p {
 }
 
 /* -------------------------
-/*  BOXES¿ò¼Ü
+/*  BOXESÂ¿Ã²Â¼Ãœ
 /* ---------------------------------------------------------------- */
 .km-box {
 	border: 1px solid #ccc;
@@ -101,7 +101,6 @@ header p {
 
 .km-box .header h3 {
 	margin: 0;
-	
 	padding-top:5px;
 	border-right:1px solid #dfdfdf;
 }
@@ -126,7 +125,7 @@ header p {
 }
 
 /* -------------------------
-/*  SIDEBAR²à±ßµ¼º½À¸
+/*  SIDEBARÂ²Ã Â±ÃŸÂµÂ¼ÂºÂ½Ã€Â¸
 /* ---------------------------------------------------------------- */
 
 #sidebar {
@@ -213,7 +212,7 @@ header p {
 }
 
 /* -------------------------
-/*  SIDEBAR SUBMENUS²à±ßÀ¸×Ó²Ëµ¥
+/*  SIDEBAR SUBMENUSÂ²Ã Â±ÃŸÃ€Â¸Ã—Ã“Â²Ã‹ÂµÂ¥
 /* ---------------------------------------------------------------- */
 #sidebar li.active ul {
 	height:auto;
@@ -263,7 +262,7 @@ header p {
 
 
 /* -------------------------
-/*  CONTENT AREAÄÚÈİÇøÓò
+/*  CONTENT AREAÃ„ÃšÃˆÃÃ‡Ã¸Ã“Ã²
 /* ---------------------------------------------------------------- */
 
 #content {
@@ -546,7 +545,7 @@ figure {
 	margin: 0 !important;
 }
 
-code {
+.code {
 	background: #eee;
 	border: 1px solid #ccc;
 	border-top: 1px solid #f7f7f7;
@@ -584,8 +583,8 @@ code {
 	top:0; left: 0;
 	margin: 0;
 	padding: 0;
-	border-right: 1px solid #dfdfdf;
-	list-style-type: none;
+	/*border-right: 1px solid #dfdfdf;
+*/	list-style-type: none;
 	font-family: Arial, serif;
 	font-size: 14px;
 	color: #222;
@@ -610,8 +609,11 @@ code {
 	text-align: center;
 }
 
+.km-box .inner .ucright-cn span{
+	color:red;
+}
 
-/*½ø¶ÈÌõ*/
+/*è¿›åº¦æ¡*/
 #content{
 	border-right:1px solid #ccc;
 	border-left:1px solid #ccc;
@@ -727,7 +729,7 @@ code {
 
 #content .ucenter .rec{
 	font-size: 20px;
-	font-family: 'ºÚÌå';
+	font-family: 'é»‘ä½“';
 	padding:5px 10px;
 }
 
