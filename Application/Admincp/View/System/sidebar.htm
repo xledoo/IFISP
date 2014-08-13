@@ -1,0 +1,30 @@
+			<!-- BEGIN PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN PAGE TITLE & BREADCRUMB-->
+					<h3 class="page-title">系统运营设置 <small>在这里可以对金融宝投融资平台进行运营的基本设置</small>
+					</h3>
+					<ul class="page-breadcrumb breadcrumb">
+						<li>
+							<i class="fa fa-home"></i>
+							<a href="{:U('admincp/system/index')}">系统运营设置</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li><a href="javascript:;">管理菜单维护</a></li>
+					</ul>
+					<!-- END PAGE TITLE & BREADCRUMB-->
+				</div>
+			</div>
+			<!-- END PAGE HEADER-->
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-hover">
+						<thead><tr><th>ID</th><th>显示顺序</th><th>菜单名称</th><th>控制器名</th><th>操作名</th><th>ICON</th><th>操作</th></tr></thead>
+						<tbody>
+						<volist name="sidebar" id="vo">	
+						<tr><td>{$vo.id}</td><td><input type="text" name="newdisplayorder[{$vo.id}]" value="{$vo.displayorder}" class="form-control input-sm input-xsmall" /></td><td><input type="text" name="newtitle[{$vo.id}]" value="{$vo.title}" class="form-control input-sm input-medium" /></td><td>{$vo.controller}</td><td>{$vo.action}</td><td></td><td></td></tr>
+						</volist>
+						</tbody>
+					</table>
+				</div>
+			</div>

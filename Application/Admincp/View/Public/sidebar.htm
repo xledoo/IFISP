@@ -1,0 +1,80 @@
+	<!-- BEGIN SIDEBAR -->
+	<div class="page-sidebar-wrapper">
+		<div class="page-sidebar navbar-collapse collapse">
+			<!-- add "navbar-no-scroll" class to disable the scrolling of the sidebar menu -->
+			<!-- BEGIN SIDEBAR MENU -->
+			<ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200">
+				<li class="sidebar-toggler-wrapper">
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+					<div class="sidebar-toggler hidden-phone"></div>
+					<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+				</li>
+				<li class="sidebar-search-wrapper">
+					<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+					<form class="sidebar-search" action="javascript:;" method="POST">
+						<div class="form-container">
+							<div class="input-box">
+								<a href="javascript:;" class="remove">
+								</a>
+								<input type="text" placeholder="搜素..."/>
+								<input type="button" class="submit" value=" "/>
+							</div>
+						</div>
+					</form>
+					<!-- END RESPONSIVE QUICK SEARCH FORM -->
+				</li>
+				<li class="start 
+						<php>
+							if(strtolower(CONTROLLER_NAME) == 'index'){
+								echo 'active ';
+							}
+						</php>
+				">
+					<a href="{:U('admincp/index/index')}">
+						<i class="fa fa-home"></i>
+						<span class="title">管理面板首页</span>
+						<php>
+							if(strtolower(CONTROLLER_NAME) == 'index'){
+								echo '<span class="selected"></span>';
+							} else {
+								echo '<span class="arrow "></span>';
+							}
+						</php>
+					</a>
+				</li>
+				<volist name="sidebar" id="vo">
+				<li class="
+						<php>
+							if(strtolower(CONTROLLER_NAME) == $vo['controller']){
+								echo 'active ';
+							}
+						</php>
+				">
+					<a href="<empty name="vo.submenu"><php>echo U('admincp/'.$vo['controller'].'/'.$vo['action']);</php><else />javascript:;</empty>">
+						<i class="fa {$vo.icon}"></i>
+						<span class="title">{$vo.title}</span>
+						<php>
+							if(strtolower(CONTROLLER_NAME) == $vo['controller']){
+								echo '<span class="selected"></span>';
+							} else {
+								echo '<span class="arrow "></span>';
+							}
+						</php>
+					</a>
+					<notempty name="vo['submenu']">
+						<ul class="sub-menu">
+							<volist name="vo['submenu']" id="sub">
+							<li>
+								<a href="<php>echo U('admincp/'.$sub['controller'].'/'.$sub['action']);</php>"><i class="fa {$sub.icon}"></i> {$sub.title}</a>
+							</li>
+							</volist>
+						</ul>
+					</notempty>
+
+				</li>
+				</volist>
+			</ul>
+			<!-- END SIDEBAR MENU -->
+		</div>
+	</div>
+	<!-- END SIDEBAR -->
