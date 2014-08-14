@@ -1,31 +1,48 @@
-<!-- BEGIN BREADCRUMBS -->   
-    <div class="row breadcrumbs">
-        <div class="container">
-            <div class="col-md-4 col-sm-4">
-                <h1>会员中心</h1>
-            </div>
-            <div class="col-md-8 col-sm-8">
-                    <ul class="pull-right breadcrumb">
-                        <li><a href="{:U('Home/Index/index')}">首页</a></li>
-                        <li><a href="{:U('Member/Index/index')}">会员中心</a></li>
-                        <li class="active">会员中心</li>
-                    </ul>
-            </div>
-        </div>
-    </div>
-<!-- END BREADCRUMBS -->
+
 
 <div>
     <div id="wrapper" class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <div class="km-box">
-            <div class="row header">
-                <div class="col-md-2"><h3>会员中心</h3></div>
-                <div class="col-md-10"><h4>当前位置 <span id="curnav" class="light">个人中心</span></h4></div>
-            </div>
             <div class="inner row">
                 <div class="col-md-2">
+                    <div class="ucleft">
+                        <div class="ucheader-cn">
+                            <div class="ucheadercenter">
+                                <div class="photo">
+                                   <abbr title="点击更改头像">
+                                        <a href="">
+                                            <img src="public/img/touxiang.png">
+                                        </a>
+                                   </abbr>
+                                </div>
+                                <div class="icon">
+                                    <div class="icon-img">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                    <div class="icon-img">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                    <div class="icon-img">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                    <div class="icon-img">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="ucmanage">
+                                <h5>用户名：<span>qwtjj243035210</span></h5>
+                                <h5>会员等级：<span>新手上路</span></h5>
+                                <h5>账户安全：</h5>
+                            </div>       
+                        </div>
+                    </div>
+                    <div class="ucleft">
+                        <div class="ucleft-cn">
+                            <div class="usingcenter"><h4>会员功能中心</h4></div>
+                        </div>
+                    </div>
                     <ul id="sidebar">
                         <li class="active">
                         <i class="fa fa-user"></i>
@@ -39,11 +56,11 @@
                         <li>
                             <i class="fa fa-gears"></i>
                             <span>个人资料设置</span>
-                            <!-- <ul>
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                            </ul> -->
+                            <ul>
+                                <li>基本资料</li>
+                                <li>密码安全</li>
+                                <li>支付密码</li>
+                            </ul>
                         </li>
                         <li>
                             <i class="fa fa-list-alt"></i>
@@ -69,21 +86,69 @@
                             <i class="fa fa-dropbox"></i>
                             <span>优惠券管理</span>
                         </li>
+                        <li>
+                            <i class="fa fa-dropbox"></i>
+                            <span>我的运用</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-dropbox"></i>
+                            <span>常见问题</span>
+                        </li>
                     </ul>
+                    
+                     <div class="ucleft ">
+                        <!-- <div class="ucright-cn">
+                            <div class="usingcenter"><h4>我的运用</h4></div>
+                            <div class="usingcenter-manage">
+                                <a href="">
+                                    <i class="fa fa-credit-card">
+                                        <span>信用卡管理中心</span>
+                                    </i> 
+                                </a>
+                               <a href="">
+                                    <i class="fa fa-bell">
+                                        <span>我的提问</span>
+                                    </i> 
+                                </a><a href="">
+                                    <i class="fa fa-gift">
+                                        <span>我的积分</span>
+                                    </i> 
+                                </a>
+                                <a href="">
+                                    <i class="fa fa-hand-o-right">
+                                        <span>我的任务</span>
+                                    </i> 
+                                </a>
+                            </div>       
+                        </div>
+                        <div class="ucright-cn">
+                            <div class="usingcenter"><h4>常见问题</h4></div>
+                            <div>
+                                
+                            </div>
+                        </div> -->
+                        <div class="ucleft-cn" style="margin-bottom:10px; border-bottom:1px solid #ccc;">
+                            <div class="usingcenter"><h4>关注我们</h4></div>
+                            <div class="attention">
+                                <p>我们的官方QQ交流群</br><span>28247794</span></br>来咨询相关业务或者扫描下方的二维码关注我们的官方微信获得最新动态！</p>
+                                <img src="Public/img/renzheng/erweima.png">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                     <div id="content">
 
                         <!-- Introduction -->
-                        <section class="active">
+                       <section class="active">
                             <div class="ucenter row">
                                 <div class="col-md-2">
-                                    <div style="width:100px;height:100px; border:1px black solid; margin:20px 10px; background-color:white;">
+                                    <!-- <div class="photo">
                                         
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col-md-4">
-                                    <div style="">
+                                 <!--    <div>
                                         <h4>用户名</h4>
                                     </div>
                                     <div>
@@ -101,8 +166,8 @@
                                         <img src="Public/img/renzheng/people.png">
                                         <img src="Public/img/renzheng/pw.png">
                                         <img src="Public/img/renzheng/phone.png">
-                                    </div>
-                                </div>
+                                    </div>-->
+                                </div> 
                                 <div class="col-md-4">
                                     <h4>账户余额：<span>0.00元</span></h4>
                                     <h5>冻结资金：<span>0.00元</span></h5>
@@ -150,7 +215,7 @@
                                 </div>
                             </div>
 
-                            <div class="ucenter row">
+                            <!-- <div class="ucenter row">
                                 <div class="row theader-accounts">
                                     <div class="col-md-2">
                                         <div class="ucenter-accounts">账户净资产</div>
@@ -258,7 +323,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="ucenter row">
                                 <div class="rec">理财推荐</div>
@@ -308,10 +373,55 @@
                             </div>
                         </section>
 
-
                         <!-- Slider setup -->
                         <section>
-                            个人资料设置
+                            <article>
+                                <div class="ucenter-uc row">
+                                    <div class="row theader-uc">
+                                        <div class="col-md-12"><h5>基本资料设置</h5></div>
+                                    </div>
+                                    <div class="table">
+                                        <table>
+                                            <thead>
+                                                <tr class="row" style="border:none;">
+                                                    <th class="col-md-2">选项</th>
+                                                    <th class="col-md-8">内容</th>
+                                                    <th class="col-md-2">状态</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="row">
+                                                    <td class="col-md-2">用户名</td>
+                                                    <td class="col-md-8" style="text-align:left;">qwtjj243035210</td>
+                                                    <td class="col-md-2">
+                                                        <div>
+                                                            <i class="fa  fa-check-square">已认证</i>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="row">
+                                                    <td class="col-md-2">用户名</td>
+                                                    <td class="col-md-8">qwtjj243035210</td>
+                                                    <td class="col-md-2">已认证</td>
+                                                </tr>
+                                                <tr class="row">
+                                                    <td class="col-md-2">用户名</td>
+                                                    <td class="col-md-8">qwtjj243035210</td>
+                                                    <td class="col-md-2">已认证</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article>
+                                2
+                            </article>
+
+                            <article>
+                               3 
+                            </article>
                         </section>
 
                         <!-- Slides -->
@@ -344,80 +454,6 @@
                         <section>
                             8
                         </section>
-
-                        <!-- Release log -->
-                        <!-- <section>
-                            
-                            <article>
-                                9-1
-                            </article>
-
-                            
-                            <article>
-                                9-2
-                            </article>
-                        </section>
-
-                        
-                        <section>
-                            <article>
-                                10-1
-                            </article>
-
-                            <article>
-                                
-                                10-2
-                            </article>
-                            <article>
-                                
-                                10-3
-                            </article>
-                            <article>
-                                10-4
-                                
-                            </article>
-                            <article>
-                                10-5
-                                
-                            </article>
-                        </section>
-                        <section>
-                            
-                            11
-                        </section> -->
-                    </div>
-                </div>
-                <div class="col-md-2"  style="padding:0px;">
-                    <div class="ucright">
-                        <div class="ucright-cn">
-                            <div class="usingcenter"><h4>我的运用</h4></div>
-                            <div>
-                                <i class="fa fa-credit-card">
-                                   <span>信用卡管理中心</span>
-                                </i> 
-                                <i class="fa fa-credit-card">
-                                   <span>信用卡管理中心</span>
-                                </i>
-                                <i class="fa fa-credit-card">
-                                    <span>信用卡管理中心</span>
-                                </i>
-                                <i class="fa fa-credit-card">
-                                    <span>信用卡管理中心</span>
-                                </i>
-                            </div>       
-                        </div>
-                        <div class="ucright-cn">
-                            <div class="usingcenter"><h4>常见问题</h4></div>
-                            <div>
-                                
-                            </div>
-                        </div>
-                        <div class="ucright-cn">
-                            <div class="usingcenter"><h4>关注我们</h4></div>
-                            <div>
-                                
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
