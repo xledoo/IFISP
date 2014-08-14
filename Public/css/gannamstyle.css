@@ -62,7 +62,7 @@ header p {
 }
 
 /* -------------------------
-/*  BOXES¿ò¼Ü
+/*  BOXESÂ¿Ã²Â¼Ãœ
 /* ---------------------------------------------------------------- */
 .km-box {
 	border: 1px solid #ccc;
@@ -126,7 +126,7 @@ header p {
 }
 
 /* -------------------------
-/*  SIDEBAR²à±ßµ¼º½À¸
+/*  SIDEBARÂ²Ã Â±ÃŸÂµÂ¼ÂºÂ½Ã€Â¸
 /* ---------------------------------------------------------------- */
 
 #sidebar {
@@ -136,15 +136,13 @@ header p {
 	top:0; left: 0;
 	margin: 0;
 	padding: 0;
-	border-right: 1px solid #dfdfdf;
+	
 	list-style-type: none;
-	font-family: Arial, serif;
-	font-size: 14px;
+	
+	font-size: 16px;
 	color: #222;
 	background: white;
-	-webkit-border-bottom-left-radius: 7px;
-	-moz-border-radius-bottomleft: 57px;
-	border-bottom-left-radius: 7px;
+	
 }
 
 /* NOTE: Fix layout with long text */
@@ -152,7 +150,7 @@ header p {
 	position: relative;
 	padding-left: 10px;
 	border-bottom: 1px solid #dfdfdf;
-	line-height: 30px;
+	line-height: 35px;
 	cursor:pointer;
 }
 
@@ -189,7 +187,7 @@ header p {
 	top: 0;
 	right: -12px;
 	border-style: solid;
-	border-width: 15px 0 15px 11px;
+	border-width: 18px 0 18px 12px;
 	border-color: transparent transparent transparent #888;
 }
 
@@ -213,7 +211,7 @@ header p {
 }
 
 /* -------------------------
-/*  SIDEBAR SUBMENUS²à±ßÀ¸×Ó²Ëµ¥
+/*  SIDEBAR SUBMENUSÂ²Ã Â±ÃŸÃ€Â¸Ã—Ã“Â²Ã‹ÂµÂ¥
 /* ---------------------------------------------------------------- */
 #sidebar li.active ul {
 	height:auto;
@@ -249,7 +247,7 @@ header p {
 }
 
 #sidebar li.active ul li:before {
-	content: '? ';
+	content: 'â†³ ';
 }
 
 #sidebar li.active ul li:first-child {
@@ -263,11 +261,11 @@ header p {
 
 
 /* -------------------------
-/*  CONTENT AREAÄÚÈİÇøÓò
+/*  CONTENT AREAÃ„ÃšÃˆÃÃ‡Ã¸Ã“Ã²
 /* ---------------------------------------------------------------- */
 
 #content {
-	padding: 30px 25px 30px 25px;
+	padding: 0px 15px 30px 25px;
 	font-weight: normal;
 	font-size: 14px;
 	line-height: 20px;
@@ -611,10 +609,9 @@ code {
 }
 
 
-/*½ø¶ÈÌõ*/
+/*Â½Ã¸Â¶ÃˆÃŒÃµ*/
 #content{
-	border-right:1px solid #ccc;
-	border-left:1px solid #ccc;
+	
 }
 
 #content .ucenter .skillbar {
@@ -727,7 +724,7 @@ code {
 
 #content .ucenter .rec{
 	font-size: 20px;
-	font-family: 'ºÚÌå';
+	font-family: 'ÂºÃšÃŒÃ¥';
 	padding:5px 10px;
 }
 

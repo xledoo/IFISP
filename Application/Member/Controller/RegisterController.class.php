@@ -83,9 +83,7 @@ class RegisterController extends BaseController {
         } else {
             M('member_checkmobile')->where("mobile='%s'")->delete();
         }
-
-        $result = $SMS->SendSMS($mobile, $content, 'register');
-
+   
         if($result = $SMS->SendSMS($mobile, $content, 'register')){
             $checkModel =   M('member_checkmobile');
             $data   =   array(
