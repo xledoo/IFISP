@@ -47,15 +47,13 @@
 	top:0; left: 0;
 	margin: 0;
 	padding: 0;
-	border-right: 1px solid #dfdfdf;
+	
 	list-style-type: none;
-	font-family: Arial, serif;
-	font-size: 14px;
+	
+	font-size: 16px;
 	color: #222;
 	background: white;
-	-webkit-border-bottom-left-radius: 7px;
-	-moz-border-radius-bottomleft: 57px;
-	border-bottom-left-radius: 7px;
+	
 }
 
 /* NOTE: Fix layout with long text */
@@ -87,11 +85,8 @@
 }*/
 
 #sidebar li:hover {
-	background: #eee;
-}
-
-#sidebar .active li:hover {
-	background: #ddd;
+	background: CornFlowerBlue;
+	color:white;
 }
 
 #sidebar ul{
@@ -102,7 +97,7 @@
 #sidebar li.active {
 	color: #fff;
 	text-shadow: 1px 1px 1px #444;
-	background: #888;
+	background: CornFlowerBlue;
 	font-weight: bold;
 }
 
@@ -115,28 +110,9 @@
 	top: 0;
 	right: -12px;
 	border-style: solid;
-	border-width: 15px 0 15px 11px;
-	border-color: transparent transparent transparent #888;
-}
-*/
-#sidebar li.hl {
-	background: #daf1ff;
-	color: #076ba6;
-}
-
-#sidebar li.hl:hover {
-	background: #0c74b1;
-	color: #fff;
-}
-
-#sidebar li.hl.active {
-	background: #0c74b1;
-	color: #fff;
-}
-
-#sidebar li.hl.active:after {
-	border-color: transparent transparent transparent #0c74b1;
-}
+	border-width: 15px 0 15px 12px;
+	border-color: transparent transparent transparent #F08080;
+}*/
 
 /* -------------------------
 /*  SIDEBAR SUBMENUS²à±ßÀ¸×Ó²Ëµ¥
@@ -150,7 +126,7 @@
 	list-style: none;
 	/*margin: 0 0 0 10px;*/
 	padding: 0;
-	background: #eee;
+	background: #FFB6C1;
 	border-bottom: 1px solid #ddd;
 }
 
@@ -158,10 +134,14 @@
 	border-top: 1px solid white;
 	border-bottom: 1px solid #ccc;
 	color: #333;
+	background-color: white;
 	transition: padding 150ms ease-in-out;
 	-ms-transition: padding 150ms ease-in-out;
 	-moz-transition: padding 150ms ease-in-out;
 	-webkit-transition: padding 150ms ease-in-out;
+}
+#sidebar li.active ul li:hover{
+	background-color: silver;
 }
 /* TODO: Eliminate overrides */
 /* TODO: Find a better highlight */
@@ -171,8 +151,7 @@
 	text-shadow: 1px 1px 1px #eee;
 	padding-left: 15px;
 	color: #333;
-	background: #ccc;
-	border-top: 1px solid #aaa;
+	background: silver;
 }
 
 #sidebar li.active ul li:before {
@@ -188,7 +167,25 @@
 	border-bottom: 0;
 }
 
+/*----------------测试-------------------*/
+[class^="fas-"],
+[class*="fas-"] {
+	display: inline-block;
+	background-image: url(../img/level.png);
+}
 
+
+.ico {
+	width: 80px;
+	height: 20px;
+	padding:0px;
+	margin: 0px;
+}
+
+.fas-email{
+	background-position:0px 0px;
+}
+/*----------------测试------------------*/
 
 /* -------------------------
 /*  CONTENT AREAÄÚÈÝÇøÓò
@@ -215,8 +212,25 @@
 #content .ucenter-uc,
 #content .ucenter{
 	border:1px #dfdfdf solid;
-	background-color:#EEEEEE;
+	background-color:#F8F8F8;
 }
+
+#content .ucenter .xinyong{
+	border-bottom:1px solid #ccc;
+	margin: 0px;
+	height: 40px;
+	padding-top:10px;
+}
+
+#content .ucenter .xinyong i{
+	color: green;
+}
+#content .ucenter .xinyong i span{
+	color: black;
+	padding-left:10px;
+	font-size:12px;
+}
+
 #example-wrapper {
 	margin: 0 auto;
 	padding: 0 40px;
@@ -576,6 +590,10 @@ figure {
 	color:#FFA500;
 }
 
+.inner .ucheader-cn .ucmanage h5 i{
+	color: #FDDA48;
+	padding-left:10px;
+}
 
 .inner .ucleft-cn{
 	margin-top:10px;
@@ -590,13 +608,16 @@ figure {
 
 }
 .inner .ucleft-cn .usingcenter{
-	background-color:#EFF8FF;
+	background-color:RoyalBlue;
 	border-bottom:1px solid #ccc;
+	height:30px;
+	padding-top:3px;
 }
 
 .inner .ucleft-cn .usingcenter h4{
 	margin:0px;
 	text-align: center;
+	color:white;
 }
 
 .inner .ucleft-cn .usingcenter-manage i{
@@ -716,6 +737,8 @@ figure {
 }
 #content .ucenter .btn{
 	margin-top: 5px;
+	border:1px solid #ccc;
+	border-radius: 10px;
 }
 
 #content .ucenter-uc .theader-uc,
