@@ -174,7 +174,6 @@
 	background-image: url(../img/level.png);
 }
 
-
 .ico {
 	width: 80px;
 	height: 20px;
@@ -182,8 +181,8 @@
 	margin: 0px;
 }
 
-.fas-email{
-	background-position:0px 0px;
+.fas-xinyong{
+	background-position:0px -80px;
 }
 /*----------------测试------------------*/
 
@@ -231,6 +230,37 @@
 	font-size:12px;
 }
 
+#content .ucenter .xinyong a{
+	color: #663300;
+	font-size:12px;
+}
+
+#content .ucenter .xinyong a:hover{
+	text-decoration:none;
+}
+#content .ucenter h4,
+#content .ucenter h5,
+#content .ucenter .money a{
+	color: #808080;
+}
+
+#content .ucenter .bt{
+	width: 100px;
+	height: 30px;
+	border: 1px solid #ccc;
+	background-color: #4D90FE;
+	border-radius:10px;
+	margin: 5px;
+	color: white;
+
+}
+
+#content .ucenter .bt:hover{
+	background-color:#0362FD; 
+}
+#content .ucenter .money a:hover{
+	text-decoration:none;
+}
 #example-wrapper {
 	margin: 0 auto;
 	padding: 0 40px;
@@ -247,14 +277,7 @@
 	border-radius: 7px;
 }
 
-h4 {
-	margin: 40px 0px 0px 0px;
-	padding: 0;
-	font-size: 22px;
-	font-weight: 400;
-	color: #0c74b1;
-	letter-spacing: -1px;
-}
+
 
 section ol, section ul, section ol li, section ul li, section p, section > div, article > div {
 	margin: 20px 0px 0px 0px;
@@ -479,7 +502,7 @@ td.c {
 .km-notification.info span { color: #6da9e2; }
 .km-notification.warning span { color: #e25b4f; }
 
-figure {
+.figure {
 	margin: 5px 10px 20px 10px;
 	font-style:italic;
 	font-size:12px;
@@ -728,17 +751,6 @@ figure {
 
 #content .ucenter .table tr,{
 	border:none;
-}
-
-
-
-#content .ucenter .btn:first-child{
-	margin-top: 15px;
-}
-#content .ucenter .btn{
-	margin-top: 5px;
-	border:1px solid #ccc;
-	border-radius: 10px;
 }
 
 #content .ucenter-uc .theader-uc,
