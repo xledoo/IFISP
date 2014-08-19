@@ -19,6 +19,7 @@ class LoginController extends BaseController {
     }
 
     public function logout(){
+        // $top = M('member')->where("username='%s'",'alipiapia')->getField('mobile');debug($top);
         session(C('LOGIN_AUTH_NAME'), null);
         cookie(C('LOGIN_AUTH_NAME'), null);
         $this->success('退出成功', U('Home/Index/index'));
@@ -46,6 +47,17 @@ class LoginController extends BaseController {
                 break;
             
             default:
+                //本地新旧平台用户数据同步
+                $memb = M('member')->where("username='%s'",$username)->find();
+                if(!$memb){
+                    $data['username']   =   $username;
+                    $data['password']   =   hashmd5($password);
+                    $mid = M('member_old')->where("username='%s'",$username)->getField('uid');
+                    $data['mobile']     =   M('member_old_profile')->where("uid='%d'",$mid)->getField('mobile');
+                    $data['email']     =   M('member_old')->where("uid='%d'",$mid)->getField('email');
+                    M('member')->add($data);
+                }
+
                 unset($member[3]);
                 unset($member[4]);
                 $member[2]  =   hashmd5($member[2]);

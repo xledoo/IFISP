@@ -4,6 +4,10 @@
 function build_md5($str, $key = 'finabao.com'){
     return '' === $str ? '' : md5(sha1($str).$key);
 }
+
+function hashmd5($str, $salt = ''){
+	return md5(substr(md5(sha1($str).$salt), 8, 16));
+}
      
 function fileext($filename) {
     return addslashes(strtolower(substr(strrchr($filename, '.'), 1, 10)));
@@ -479,9 +483,6 @@ function checkmd5($md5, $verified, $salt = '') {
 	return $result;
 }
 
-function hashmd5($str, $salt = ''){
-	return md5(substr(md5($str.$salt), 8, 16));
-}
 
 
 ?>
