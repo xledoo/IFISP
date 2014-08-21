@@ -31,7 +31,7 @@
                             </div>
                             <div class="ucmanage">
                                 <h5>用户名：<span>qwtjj243035210</span></h5>
-                                <h5>会员等级：<span>新手上路</span><i class="fa fa-star"></i></h5>
+                                <h5>会员等级：<span>新手上路</span><i class="ico-star fas-onestar"></i></h5>
                                 <h5>账户安全：</h5>
                             </div>       
                         </div>
@@ -84,73 +84,34 @@
                             <i class="fa fa-dropbox"></i>
                             <span>优惠券管理</span>
                         </li>
-                        <li>
-                            <i class="fa fa-dropbox"></i>
-                            <span>我的运用</span>
-                        </li>
-                        <li>
-                            <i class="fa fa-dropbox"></i>
-                            <span>常见问题</span>
-                        </li>
                     </ul>
                     
                      <div class="ucleft ">
                         <div class="ucleft-cn" style="margin-bottom:10px; border-bottom:1px solid #ccc;">
-                            <div class="usingcenter"><h4>我的运用</h4></div>
-                            <div class="usingcenter-manage">
-                                <a href="">
-                                    <i class="fa fa-credit-card">
-                                        <span>信用卡管理中心</span>
-                                    </i> 
-                                </a>
-                               <a href="">
-                                    <i class="fa fa-bell">
-                                        <span>我的提问</span>
-                                    </i> 
-                                </a></br>
-                                <a href="">
-                                    <i class="fa fa-gift">
-                                        <span>我的积分</span>
-                                    </i> 
-                                </a></br>
-                                <a href="">
-                                    <i class="fa fa-hand-o-right">
-                                        <span>我的任务</span>
-                                    </i> 
-                                </a>
-                            </div>       
-                        </div>
-                       <!--  <div class="ucright-cn">
                             <div class="usingcenter"><h4>常见问题</h4></div>
-                            <div>
+                            <div class="usingcenter-manage">
                                 
-                            </div>
-                        </div> 
-                        <div class="ucleft-cn" style="margin-bottom:10px; border-bottom:1px solid #ccc;">
-                            <div class="usingcenter" style="background-color:#DC143C;"><h4>关注我们</h4></div>
-                            <div class="attention">
-                                <p>我们的官方QQ交流群</br><span>28247794</span></br>来咨询相关业务或者扫描下方的二维码关注我们的官方微信获得最新动态！</p>
-                                <img src="Public/img/renzheng/erweima.png">
-                            </div>
-                        </div>-->
+                            </div>  
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-10">
                     <div id="content">
 
                         <!-- Introduction -->
-                       <section class="active">
+                       <section class="active" >
                             <div class="ucenter row">
                                 <div class="row xinyong">
                                     <div class="col-md-2">
                                         <i class="fa fa-group"><span>我的信用等级:</span></i>
-                                        
                                     </div>
                                     <div class="col-md-8">
-                                        <i class="ico fas-xinyong">&nbsp;</i>
-                                        <span>LD5</span>
-                                        <i></i>
-                                        <span>LD4</span>
+                                        <a href="">
+                                            <i class="ico fas-d1">&nbsp;</i>
+                                            <span>LVD1</span>
+                                            <i class="ico-star fas-fivebluediam">&nbsp;</i>
+                                            <!-- <span>LVD4</span> --> 
+                                        </a>
                                     </div>
                                     <div class="col-md-2">
                                         <i class="fa  fa-bar-chart-o"></i>
@@ -174,11 +135,30 @@
                                     <input type="button" class="bt" value="我要提现" />
                                     <input type="button" class="bt" value="我要转账" />
                                 </div>
-                                <div class="col-md-2"></div>
-                                <div class="col-md-2">
-                                    <img src="public/img/erweima.png">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2 img">
+                                     <img src="public/img/erweima.png">
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div class="col-md-2">
+                                    <div class="using">
+                                        <a href="">
+                                            <i class="fa fa-credit-card"></i> 
+                                            <h5>我的信用卡<span>0</span></h5>
+                                        </a><br/>
+                                        <a href="">
+                                            <i class="fa fa-bell"></i> 
+                                            <h5>我的提问<span>0</span></h5>
+                                        </a><br/>
+                                        <a href="">
+                                            <i class="fa fa-gift"></i> 
+                                            <h5>我的积分<span>0</span></h5>
+                                        </a><br/>
+                                        <a href="">
+                                            <i class="fa fa-hand-o-right"></i> 
+                                            <h5>我的任务<span>0</span></h5>
+                                        </a>
+                                    </div> 
+                                </div>
                             </div>
 
                             <div class="ucenter row">
@@ -384,31 +364,190 @@
                                     <div class="table">
                                         <table>
                                             <thead>
-                                                <tr class="row" style="border:none;">
-                                                    <th class="col-md-2">选项</th>
-                                                    <th class="col-md-8">内容</th>
-                                                    <th class="col-md-2">状态</th>
+                                                <tr>
+                                                    <th>标题</th>
+                                                    <th>内容</th>
+                                                    <th>操作</th>
+                                                    <th>状态</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="row">
-                                                    <td class="col-md-2">用户名</td>
-                                                    <td class="col-md-8" style="text-align:left;">qwtjj243035210</td>
-                                                    <td class="col-md-2">
-                                                        <div>
-                                                            <i class="fa  fa-check-square">已认证</i>
-                                                        </div>
+                                                <tr>
+                                                    <td>用户名</td>
+                                                    <th>qwtjj243035210</th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
                                                     </td>
                                                 </tr>
-                                                <tr class="row">
-                                                    <td class="col-md-2">用户名</td>
-                                                    <td class="col-md-8">qwtjj243035210</td>
-                                                    <td class="col-md-2">已认证</td>
+                                                <tr>
+                                                    <td style="padding-top:0px;">真实姓名</td>
+                                                    <th>
+                                                        <input type="text"/>
+                                                        <p>此项为必填项，提交后需审核！</p>
+                                                    </th>
+                                                    <td style="padding-top:0px;">
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td style="padding-top:0px;">
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
                                                 </tr>
-                                                <tr class="row">
-                                                    <td class="col-md-2">用户名</td>
-                                                    <td class="col-md-8">qwtjj243035210</td>
-                                                    <td class="col-md-2">已认证</td>
+                                                <tr>
+                                                    <td>性别</td>
+                                                    <th>
+                                                        <select>
+                                                            <option>男</option>
+                                                            <option>女</option>
+                                                        </select>
+                                                    </th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>生日</td>
+                                                    <th>
+                                                        <select>
+                                                            <option>年</option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                        </select>
+                                                        <select>
+                                                            <option>月</option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                        </select>
+                                                        <select>
+                                                            <option>日</option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                        </select>
+                                                    </th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>出生地</td>
+                                                    <th></th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>居住地</td>
+                                                    <th></th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>工作状态</td>
+                                                    <th></th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>用户名</td>
+                                                    <th>qwtjj243035210</th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>用户名</td>
+                                                    <th>qwtjj243035210</th>
+                                                    <td>
+                                                        <select>
+                                                            <option>保密</option>
+                                                            <option>好友可见</option>
+                                                            <option>公开</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-check-square"><span>已认证</span></i>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -417,11 +556,44 @@
                             </article>
 
                             <article>
-                                2
+                                <div class="ucenter-uc row">
+                                    <div class="row theader-uc">
+                                        <div class="col-md-12"><h5>密码安全</h5></div>
+                                    </div>
+                                    <div class="prompt">
+                                        <i class="fa fa-bullhorn"><span>您必须填写原密码才能修以下内容！</span></i>
+                                    </div>
+                                    <div class="table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>原密码</td>
+                                                    <th>
+                                                        <div class="input-icon input-medium margin-top-0">
+                                                            <i class="fa fa-user"></i>
+                                                            <input type="text" class="form-control"  placeholder=".input-medium">
+                                                        </div>
+                                                    </th>
+                                                    <td>
+                                                        <select>
+                                                            <option>公开</option>
+                                                            <option>好友可见</option>
+                                                            <option>保密</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </article>
 
                             <article>
-                               3 
+                                <div class="ucenter-uc row">
+                                    <div class="row theader-uc">
+                                        <div class="col-md-12"><h5>支付密码</h5></div>
+                                    </div>
+                                </div>
                             </article>
                         </section>
 
