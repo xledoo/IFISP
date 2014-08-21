@@ -2541,7 +2541,7 @@ li [class*=" fa-"].icon-large {
   text-align: center;
 }
 .login .content .input-icon {
-  border-left: 2px solid #35aa47 !important;
+  <!--border-left: 2px solid #35aa47 !important-->;
 }
 .login .content .forget-password{
 	padding-top:9px; 
@@ -2576,4 +2576,5 @@ li [class*=" fa-"].icon-large {
 .login-signup-page .checkbox{
 	padding-left: 0;
 }
+
 

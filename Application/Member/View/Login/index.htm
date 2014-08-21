@@ -22,7 +22,10 @@
     <form class="login-form" action="{:U('Member/Login/index')}" id="login_form" method="post">
         <input type="hidden" name="formhash" value="{$formhash}" />
         <h3 class="form-title">会员登录</h3>
-        <div class="alert alert-danger" role="alert" id="message_box" style="display:none;"><span id="message_return"></span></div>
+        <div class="alert alert-danger" role="alert" id="message_box" style="display:none; height:30px; padding-top:5px;">
+        <i class="fa fa-warning"></i>
+        <span id="message_return"></span>
+        </div>
         <div class="form-group">
             <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
             <label class="control-label visible-ie8 visible-ie9">用户名</label>
@@ -33,7 +36,7 @@
         </div>
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">密码</label>
-            <div class="input-icon">
+            <div class="input-icon" style="border-left:0px;">
                 <i class="fa fa-lock"></i>
                 <input class="form-control placeholder-no-fix" type="password" onblur="ajax_check(this.id, this.value);" placeholder="输入密码" name="password" id="password" />
             </div>
