@@ -47,8 +47,9 @@ class LoginController extends BaseController {
                 break;
             
             default:
-                //用户数据同步:根据登录时的username从member_old+member_old_profile中获取所需字段来更新本地member表，
-                //更新字段:username,email,password,regdate,mobile;加密方式修改为hashmd5;
+                //用户数据同步:根据登录时的username从member_old+member_old_profile表中获取所需字段来更新本地member表;
+                //更新字段:username,email,password,regdate,mobile;
+                //加密方式修改为hashmd5();
                 $memb = M('member')->where("username='%s'",$username)->find();
                 if(!$memb){
                     $data['username']   =   $username;

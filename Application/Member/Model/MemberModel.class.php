@@ -33,7 +33,7 @@ class MemberModel extends Model {
 		array('regdate',	'time',	1,	'function'), 
 	);
 
-	//UC附表更新操作
+	//UC注册时本地member附表更新操作
 	protected function _after_insert($data,$options) {
 		$countModel		=	M('member_count');
 		$profileModel	=	M('member_profile');
