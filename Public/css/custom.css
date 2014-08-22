@@ -79,11 +79,11 @@ Member/sidebar
 	background:OldLace;
 }
 
-.sidebar-cd a i{
+.sidebar-cd i{
 	padding-left:40px;
 }
 
-.sidebar-cd a span{
+.sidebar-cd span{
 	padding-left:10px;
 }
 
@@ -130,7 +130,36 @@ Member/sidebar
 	border-bottom:none;
 }
 
+.con-me a{
+	color:black;
+}
 .con-me1:hover {
 	background:OldLace;
 }
 
+.page-rule {
+	background-color:#F8F8F8;
+	border:1px solid #ccc;
+}
+
+.lev{
+	height:35px;
+	border-bottom:1px solid #ccc;
+	padding:5px;
+	margin:0px;
+}
+.lev i{
+	font-size:14px;
+	color:green;
+	margin-bottom:-5px;
+}
+.lev i span{
+	color:black;
+	margin-left:10px;
+}
+.lev i:last-child{
+}
+
+.cred {
+	padding:10px;
+}
