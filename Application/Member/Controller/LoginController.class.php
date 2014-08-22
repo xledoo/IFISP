@@ -54,7 +54,7 @@ class LoginController extends BaseController {
                 if(!$memb){
                     $data['username']   =   $username;
                     $data['password']   =   hashmd5($password);
-                    $mid = M('member_old')->where("username='%s'",$username)->getField('uid');
+                    $mid = M('member_old')->where("username='%s'",$username)->getField('uid');//获取用户uid
                     $data['email']     =   M('member_old')->where("uid='%d'",$mid)->getField('email');//同步email
                     $data['regdate'] = M('member_old')->where("uid='%s'",$mid)->getField('regdate');//同步注册时间
                     $data['mobile']     =   M('member_old_profile')->where("uid='%d'",$mid)->getField('mobile');//同步手机号码

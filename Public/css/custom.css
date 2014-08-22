@@ -1,1 +1,111 @@
-/* here you can put your own css to customize and override the theme */
+
+/*
+Member/sidebar
+*/
+
+.sidebar {
+	font-size:18px;
+	
+}
+
+a:hover,a:visited,a:link{
+	text-decoration:none;
+}
+
+.sidebar-fu {
+	background:#EFF8FF;
+	border:1px solid #ccc;
+	border-right:none;
+	border-left:none;
+	padding:0px 20px;
+}
+.sidebar-adv {
+	width:74px;
+	height:70px;
+	border:1px solid #ccc;
+	margin-top:-35px;
+}
+
+.sidebar-adc {
+	width:38px;
+	height:35px;
+	float:right;
+	margin-top:35px;
+	border:1px solid #ccc;
+	border-top:none;
+	border-right:none;
+	background:#EFF8FF;
+	
+}
+
+.sidebar-adc i {
+	padding:8px;
+	font-size:20px;
+	color:DimGray;
+}
+
+.sidebar-ava img{
+	width:72px;
+	height:68px;
+	padding:1px;
+}
+.sidebar-man{
+	background-color:#F8F8F8;
+	padding:15px 0px 15px 0px;
+}
+
+.sidebar-lv {
+	padding:5px 20px;
+	font-size:10px;
+	
+}
+
+.sidebar-rd1 {
+	font-size:12px;
+	margin:5px;
+}
+
+.sidebar-cd{
+	height:30px;
+	margin-top:10px;
+	cursor:pointer;
+}
+
+.sidebar-cd:hover{
+	border-top:1px solid #D9534F;
+	border-bottom:1px solid #D9534F;
+	background:OldLace;
+}
+
+.sidebar-cd i{
+	padding-left:40px;
+}
+
+.sidebar-cd span{
+	padding-left:10px;
+}
+
+.sidebar-ld {
+	float:left;
+	margin:10px;
+}
+
+.sidebar-ld1 {
+	font-size:18px;
+}
+
+.sidebar-ld2 {
+	font-size:12px;
+	color:#006699;
+}
+
+.con-me1 {
+	width:93px;
+	height:35px;
+	float:right;
+	border:1px solid #ccc;
+	background:#F8F8F8;
+	margin:1px;
+	padding:5px;
+	text-align:center;
+}
