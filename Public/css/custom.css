@@ -8,7 +8,7 @@ Member/sidebar
 	
 }
 
-a:hover,a:visited,a:link{
+.sidebar a:hover,a:visited,a:link{
 	text-decoration:none;
 }
 
@@ -68,20 +68,22 @@ a:hover,a:visited,a:link{
 .sidebar-cd{
 	height:30px;
 	margin-top:10px;
-	cursor:pointer;
 }
 
+.sidebar-cd a{
+	color:black;
+}
 .sidebar-cd:hover{
 	border-top:1px solid #D9534F;
 	border-bottom:1px solid #D9534F;
 	background:OldLace;
 }
 
-.sidebar-cd i{
+.sidebar-cd a i{
 	padding-left:40px;
 }
 
-.sidebar-cd span{
+.sidebar-cd a span{
 	padding-left:10px;
 }
 
@@ -99,13 +101,36 @@ a:hover,a:visited,a:link{
 	color:#006699;
 }
 
+.con-me {
+	font-size:15px;
+	width:100%;
+	height:35px;
+	border-bottom:1px solid #ccc;
+}
+
 .con-me1 {
 	width:93px;
-	height:35px;
 	float:right;
 	border:1px solid #ccc;
 	background:#F8F8F8;
 	margin:1px;
 	padding:5px;
 	text-align:center;
+	cursor:pointer;
+	border-bottom:none;
 }
+
+.con-me2 {
+	width:188px;
+	float:left;
+	margin:1px;
+	padding:5px;
+	text-align:center;
+	font-size:18px;
+	border-bottom:none;
+}
+
+.con-me1:hover {
+	background:OldLace;
+}
+
