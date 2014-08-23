@@ -1,23 +1,27 @@
-
 /*
-Member/sidebar
+Moduel: Member
 */
 
+/*
+sidebar
+*/
 .sidebar {
 	font-size:18px;
 	
 }
 
-.sidebar a:hover,a:visited,a:link{
+.sidebar a {
 	text-decoration:none;
+	
 }
 
 .sidebar-fu {
+	height:35px;
 	background:#EFF8FF;
 	border:1px solid #ccc;
 	border-right:none;
 	border-left:none;
-	padding:0px 20px;
+	padding:4px 20px;
 }
 .sidebar-adv {
 	width:74px;
@@ -70,9 +74,6 @@ Member/sidebar
 	margin-top:10px;
 }
 
-.sidebar-cd a{
-	color:black;
-}
 .sidebar-cd:hover{
 	border-top:1px solid #D9534F;
 	border-bottom:1px solid #D9534F;
@@ -81,10 +82,12 @@ Member/sidebar
 
 .sidebar-cd i{
 	padding-left:40px;
+	color:DimGray;
 }
 
 .sidebar-cd span{
 	padding-left:10px;
+	color:black;
 }
 
 .sidebar-ld {
@@ -94,13 +97,17 @@ Member/sidebar
 
 .sidebar-ld1 {
 	font-size:18px;
+	color:DimGray;
 }
 
 .sidebar-ld2 {
 	font-size:12px;
-	color:#006699;
+	color:LavenderBlue;
 }
 
+/*
+contents menu
+*/
 .con-me {
 	font-size:15px;
 	width:100%;
@@ -116,8 +123,8 @@ Member/sidebar
 	margin:1px;
 	padding:5px;
 	text-align:center;
-	cursor:pointer;
 	border-bottom:none;
+	color:Black;
 }
 
 .con-me2 {
@@ -130,13 +137,14 @@ Member/sidebar
 	border-bottom:none;
 }
 
-.con-me a{
-	color:black;
-}
 .con-me1:hover {
 	background:OldLace;
+	
 }
 
+/*
+central man
+*/
 .page-rule {
 	background-color:#F8F8F8;
 	border:1px solid #ccc;
@@ -156,8 +164,6 @@ Member/sidebar
 .lev i span{
 	color:black;
 	margin-left:10px;
-}
-.lev i:last-child{
 }
 
 .cred {
