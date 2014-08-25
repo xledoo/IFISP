@@ -35,7 +35,96 @@
                     <div class="con-me1 index" style="background: white;border-bottom:2px solid white;">基本资料</div>
                     <div class="con-me2">个人资料设置</div>
                 </div>
-				<div style="clear:both;">基本资料修改</div>
+                <div style="clear:both;"></div>
+                <form name="inform1" action="#" method="post" class="inform1">
+                    <div class="row personal">
+                        <div class="col-md-2">用户名</div>
+                        <div class="col-md-6">
+                            <div class="input-icon input-medium margin-top-5">
+                                <i class="fa fa-user"></i>
+                                <input type="text" class="form-control" placeholder="XXX" readonly="">
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2 state"></div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">真实姓名</div>
+                        <div class="col-md-6">
+                            <div class="input-icon input-medium margin-top-5">
+                                <i class="fa fa-user"></i>
+                                <input type="text" class="form-control" name="realname">
+                                <span class="form-required">*</span>
+                                <span class="form-span-font">此项资料提交后需要审核</span>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <select>
+                                <option>公开</option>
+                                <option>好友可见</option>
+                                <option>保密</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 state">
+                            <i class="fa  fa-check-square"><span>已认证</span></i>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">性别</div>
+                        <div class="col-md-6">
+                            <select>
+                                <option>保密</option>
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select>
+                                <option>公开</option>
+                                <option>好友可见</option>
+                                <option>保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">血型</div>
+                        <div class="col-md-6">
+                            <select>
+                                <option>A</option>
+                                <option>B</option>
+                                <option>AB</option>
+                                <option>O</option>
+                                <option>其它</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select>
+                                <option>公开</option>
+                                <option>好友可见</option>
+                                <option>保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">交友目的</div>
+                        <div class="col-md-6">
+                                
+                        <textarea rows="3" cols="40" name="guymd"></textarea>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <select>
+                                <option>公开</option>
+                                <option>好友可见</option>
+                                <option>保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal" style="margin:50px 280px 20px;">
+                        <button type="submit" class="btn btn blue col-md-4" id="setinfo">保&nbsp;存</button>
+                        <button type="button" class="btn default col-md-4">取&nbsp;消</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

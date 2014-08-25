@@ -181,6 +181,14 @@
 	margin: 0px;
 }
 
+.weixin{
+	width:102px;
+	height:102px;
+	margin:0px;
+	padding:1px;
+	border:1px solid #ccc;
+	border-style:inset;
+}
 .ico-star{
 	width: 100px;
 	height: 20px;
@@ -357,6 +365,10 @@
 }
 .fas-fivestar{
 	background-position:-325px -82px;
+}
+
+.fas-weixin{
+	background-position:-228px -102px;
 }
 /*----------------测试------------------*/
 
