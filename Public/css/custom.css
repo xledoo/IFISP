@@ -1,23 +1,27 @@
-
 /*
-Member/sidebar
+Moduel: Member
 */
 
+/*
+sidebar
+*/
 .sidebar {
 	font-size:18px;
 	
 }
 
-.sidebar a:hover,a:visited,a:link{
+.sidebar a {
 	text-decoration:none;
+	
 }
 
 .sidebar-fu {
+	height:35px;
 	background:#EFF8FF;
 	border:1px solid #ccc;
 	border-right:none;
 	border-left:none;
-	padding:0px 20px;
+	padding:4px 20px;
 }
 .sidebar-adv {
 	width:74px;
@@ -70,21 +74,20 @@ Member/sidebar
 	margin-top:10px;
 }
 
-.sidebar-cd a{
-	color:black;
-}
 .sidebar-cd:hover{
 	border-top:1px solid #D9534F;
 	border-bottom:1px solid #D9534F;
 	background:OldLace;
 }
 
-.sidebar-cd a i{
+.sidebar-cd i{
 	padding-left:40px;
+	color:DimGray;
 }
 
-.sidebar-cd a span{
+.sidebar-cd span{
 	padding-left:10px;
+	color:black;
 }
 
 .sidebar-ld {
@@ -94,13 +97,17 @@ Member/sidebar
 
 .sidebar-ld1 {
 	font-size:18px;
+	color:DimGray;
 }
 
 .sidebar-ld2 {
 	font-size:12px;
-	color:#006699;
+	color:LavenderBlue;
 }
 
+/*
+contents menu
+*/
 .con-me {
 	font-size:15px;
 	width:100%;
@@ -116,8 +123,8 @@ Member/sidebar
 	margin:1px;
 	padding:5px;
 	text-align:center;
-	cursor:pointer;
 	border-bottom:none;
+	color:Black;
 }
 
 .con-me2 {
@@ -132,5 +139,140 @@ Member/sidebar
 
 .con-me1:hover {
 	background:OldLace;
+	
 }
 
+/*
+central man
+*/
+.page-rule {
+	background-color:#F8F8F8;
+	border:1px solid #ccc;
+}
+
+.lev{
+	height:35px;
+	border-bottom:1px solid #ccc;
+	padding-top:5px;
+	margin:0px;
+}
+.lev i{
+	font-size:14px;
+	color:green;
+	padding-top:5px;
+}
+.lev i span{
+	color:black;
+	margin-left:10px;
+}
+
+.page-rule .lev i,
+.page-rule .lev .xinyong .jindu span,
+.page-rule .lev .xinyong .jindutiao{
+float:left;
+}
+.page-rule .cred .detail a,
+.page-rule .cred .detail a:hover,
+.page-rule .lev .xinyong .jindu a:hover,
+.page-rule .lev .xinyong .jindu a{
+	color:black;
+	font-size:14px;
+	color: #686868;
+}
+.page-rule .lev .xinyong .jindu span{
+	padding:2px 5px;
+}
+
+.page-rule .lev .xinyong .jindutiao{
+	width: 100px;
+	height: 10px;
+	border:1px solid #ccc;
+	border-radius:5px;
+	margin-top:8px;
+}
+
+.cred {
+	padding:10px 15px;
+}
+
+.cred .usaccount{
+	font-size: 14px;
+	color: #989898;
+}
+
+.page-rule .cred .detail a span,
+.cred .usaccount span{
+	font-size: 24px;
+	color:#FF6600;
+	padding-left:5px;
+	font-weight:300;
+}
+
+.page-rule .cred .detail span{
+	font-size:14px;
+	color:#ccc; 
+}
+
+.page-rule .cred .usoperation{
+	margin-top:10px;
+	border:1px solid #ccc;
+	width:272px;
+	height:30px;
+	border-radius:5px;
+	border-right:none;
+}
+.page-rule .cred .usoperation a .operation{
+	float:left;
+	border-right:1px solid #ccc;
+	width:90px;
+	text-align:center;
+	font-size:14px;
+	color:#989898;
+	padding-top:5px;
+	height:29px;
+}
+
+.page-rule .cred .right a i{
+	font-size:12px;
+	height: 14px;
+	width: 14px;
+	padding-right:5px;
+}
+
+.page-rule .cred .right a{
+	font-size:12px;
+	color:black;
+	font-weight:800;
+}
+
+.page-rule .cred .right a span{
+	color:#8B0000;
+	padding-left:110px;
+}
+
+.page-rule .cred .right a:hover{
+	color:#FFD700;
+}
+
+.page-rec{
+	margin-top:10px;
+}
+.page-rec .header{
+	background-color: #EFF8FF;
+	height: 30px;
+	margin:0px;
+	padding:3px 15px;
+	border:1px solid #ccc;
+	border-bottom: none;
+}
+
+.page-rec .header span{
+	font-size:14px;
+	font-weight:700;
+	color:#585858;
+}
+
+.page-rec .table{
+	padding:0px;
+	margin: 0px;
+}
