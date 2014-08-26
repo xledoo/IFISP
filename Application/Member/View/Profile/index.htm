@@ -36,7 +36,7 @@
                     <div class="con-me2">个人资料设置</div>
                 </div>
                 <div style="clear:both;"></div>
-                <form name="inform1" action="#" method="post" class="inform1">
+                <form name="inform1" action="{:U('Member/Profile/setBasicInfo')}" method="post" class="inform1">
                     <div class="row personal">
                         <div class="col-md-2">用户名</div>
                         <div class="col-md-6">
@@ -53,13 +53,13 @@
                         <div class="col-md-6">
                             <div class="input-icon input-medium margin-top-5">
                                 <i class="fa fa-user"></i>
-                                <input type="text" class="form-control" name="realname" placeholder="{$memp['realname']}">
+                                <input type="text" class="form-control" name="realname" value="{$memp['realname']}">
                                 <span class="form-required">*</span>
                                 <span class="form-span-font">此项资料提交后需要审核</span>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <select name="personal">
+                            <select name="">
                                 <option value="0">公开</option>
                                 <option value="1">好友可见</option>
                                 <option value="2">保密</option>
@@ -79,7 +79,7 @@
                             </select>
                         </div>
                         <div class="col-md-2">
-                            <select name="personal">
+                            <select name="">
                                 <option value="0">公开</option>
                                 <option value="1">好友可见</option>
                                 <option value="2">保密</option>
@@ -98,7 +98,7 @@
                             </select>
                         </div>
                         <div class="col-md-2">
-                            <select name="personal">
+                            <select name="">
                                 <option value="0">公开</option>
                                 <option value="1">好友可见</option>
                                 <option value="2">保密</option>
@@ -106,14 +106,14 @@
                         </div>
                     </div>
                     <div class="row personal">
-                        <div class="col-md-2">交友目的</div>
+                        <div class="col-md-2">兴趣</div>
                         <div class="col-md-6">
                                 
-                        <textarea rows="3" cols="40" name="guymd"></textarea>
+                        <textarea rows="3" cols="40" name="interest"></textarea>
                             
                         </div>
                         <div class="col-md-2">
-                            <select name="personal">
+                            <select name="">
                                 <option value="0">公开</option>
                                 <option value="1">好友可见</option>
                                 <option value="2">保密</option>

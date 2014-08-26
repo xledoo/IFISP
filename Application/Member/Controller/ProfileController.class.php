@@ -6,23 +6,77 @@ class ProfileController extends BaseController {
     public function index(){
         $gm = $this->_G['member']['mobile'];
         $data = M('member_old_profile')->where("mobile='%s'",$gm)->field('uid',true)->select();
-        M('member_profile')->where("mobile='%s'",$gm)->save($data[0]);
+        M('member_profile')->where("mobile='%s'",$gm)->add($data[0]);
         $this->assign('memp',$data[0]);
     	$this->display();
     }
 
+    //基本资料修改
     public function setBasicInfo(){
-        
+        if(M('member_profile')->where("mobile='%s'",$this->_G['member']['mobile'])->save($_POST)){
+            $this->success("修改成功！");
+        }
     }
 
+    //密码修改
     public function myPw(){
-    	$this->display();
+        if(formcheck('edit')){
+            loaducenter();
+            $uid = uc_user_edit(I('username'), I('oldpw'), I('newpw'));
+            switch ($uid) {
+                case '0':
+                    $return['msg']  = '没有做任何修改';
+                    $return['err']  =   true;
+                    break;
+                case '-1':
+                    $return['msg']  = '旧密码不正确';
+                    $return['err']  =   true;
+                    break;
+                case '-4':
+                    $return['msg']  = 'Email格式有误';
+                    $return['err']  =   true;
+                    break;
+                case '-5':
+                    $return['msg']  = 'Email不允许注册';
+                    $return['err']  =   true;
+                    break;
+                case '-6':
+                    $return['msg']  = '该Email已被注册';
+                    $return['err']  =   true;
+                    break;
+                case '-7':
+                    $return['msg']  = '没有做任何修改';
+                    $return['err']  =   true;
+                    break;
+                case '-8':
+                    $return['msg']  = '该用户受保护无权限修改';
+                    $return['err']  =   true;
+                    break;
+                default:
+                    $model = M('member');
+                    $model->create();
+                    $model->add();
+                    $return['msg'] = '修改成功！';
+                    $return['err'] = false;
+                    break;
+            }
+            if($return['err']){
+                $this->error($return['msg']);
+            } else {
+                $this->success($return['msg']);
+            }
+        } else {
+            $this->display();            
+        }
     }
     
+    //我的积分
     public function myInte(){
+        // debug($_POST);
     	$this->display();
     }
 
+    //我的头像
     public function myAva(){
     	$this->display();
     }
