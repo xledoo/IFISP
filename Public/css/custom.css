@@ -2,6 +2,16 @@
 Moduel: Member
 */
 
+html,body,div,span,li,ul,a,p,i,input,button,select,option {
+font-family:"Microsoft YaHei", "微软雅黑", "SimSun", "宋体";
+}
+
+.form-required {
+color: red;
+font-family: SimSun;
+font-size: 14px;
+margin-right: 6px;
+}
 /*
 sidebar
 */
@@ -70,7 +80,7 @@ sidebar
 }
 
 .sidebar-cd{
-	height:30px;
+	height:28px;
 	margin-top:10px;
 }
 
@@ -78,6 +88,8 @@ sidebar
 	border-top:1px solid #D9534F;
 	border-bottom:1px solid #D9534F;
 	background:OldLace;
+	height:40px;
+	padding:6px;
 }
 
 .sidebar-cd i{
@@ -166,6 +178,10 @@ central man
 	margin-left:10px;
 }
 
+/*
+	Member/Index/index
+*/
+
 .page-rule .lev i,
 .page-rule .lev .xinyong .jindu span,
 .page-rule .lev .xinyong .jindutiao{
@@ -242,7 +258,11 @@ float:left;
 .page-rule .cred .right a{
 	font-size:12px;
 	color:black;
+<<<<<<< HEAD
 	font-weight:800;
+=======
+	font-weight:900;
+>>>>>>> fd9298729fafa02cced05640b3d296d20039d0de
 }
 
 .page-rule .cred .right a span{
@@ -275,4 +295,42 @@ float:left;
 .page-rec .table{
 	padding:0px;
 	margin: 0px;
+<<<<<<< HEAD
+=======
+}
+
+/*
+	forminfo
+*/
+.inform1{
+	background-color:#F8F8F8;
+	padding:30px 20px;
+	font-size:15px;
+	color:
+}
+
+.inform1 input,select{
+	border-style:inset;
+}
+
+.inform1 .personal {
+	margin-top:20px;
+}
+.inform1 .personal .state{
+	
+}
+
+.inform1 .personal .state i{
+	color:green;
+}
+
+.inform1 .personal .state i span{
+	padding-left:5px;
+	color:#989898;
+}
+
+.form-span-font {
+	color:DimGray;
+	font-size:14px;
+>>>>>>> fd9298729fafa02cced05640b3d296d20039d0de
 }
