@@ -270,6 +270,29 @@ float:left;
 	color:#FFD700;
 }
 
+.page-rec{
+	margin-top:10px;
+}
+.page-rec .header{
+	background-color: #EFF8FF;
+	height: 30px;
+	margin:0px;
+	padding:3px 15px;
+	border:1px solid #ccc;
+	border-bottom: none;
+}
+
+.page-rec .header span{
+	font-size:14px;
+	font-weight:700;
+	color:#585858;
+}
+
+.page-rec .table{
+	padding:0px;
+	margin: 0px;
+}
+
 /*
 	forminfo
 */
