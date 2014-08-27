@@ -67,7 +67,7 @@ class LoginController extends BaseController {
                 $auth = authcode(serialize($member), 'ENCODE', C('GLOBAL_AUTH_KEY'));
                 session(C('LOGIN_AUTH_NAME'), $auth);
                 cookie(C('LOGIN_AUTH_NAME'), $auth);
-                $return['msg']  =   '会员登录成功';
+                $return['msg']  =   '欢迎回来,'.$username;
                 $return['err']  =   false;
                 break;
         }

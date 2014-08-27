@@ -21,9 +21,10 @@ class ProfileController extends BaseController {
     //密码修改
     public function myPw(){
         if(formcheck('edit')){
+            // debug($_POST);
             loaducenter();
-            $uid = uc_user_edit(I('username'), I('oldpw'), I('newpw'));
-            switch ($uid) {
+            $pid = uc_user_edit(I('username'), I('oldpw'), I('newpw'),I('email'));
+            switch ($pid) {
                 case '0':
                     $return['msg']  = '没有做任何修改';
                     $return['err']  =   true;
@@ -53,12 +54,15 @@ class ProfileController extends BaseController {
                     $return['err']  =   true;
                     break;
                 default:
-                    $model = M('member');
-                    $model->create();
-                    $model->add();
-                    $return['msg'] = '修改成功！';
-                    $return['err'] = false;
-                    break;
+                    $memb = M('member')->where("username='%s'",$username)->find();
+                    if(!$memb){
+                        $data['username']   =   $username;
+                        $data['password']   =   hashmd5($password);
+                        M('member')->add($data);
+                    }
+                        $return['msg'] = '修改成功！';
+                        $return['err'] = false;
+                        break;
             }
             if($return['err']){
                 $this->error($return['msg']);
@@ -66,12 +70,14 @@ class ProfileController extends BaseController {
                 $this->success($return['msg']);
             }
         } else {
+            $this->assign('formhash', formhash());
             $this->display();            
         }
     }
     
     //我的积分
     public function myInte(){
+        // debug($this->_G['member']);
         // debug($_POST);
     	$this->display();
     }

@@ -6,7 +6,6 @@ class RegisterController extends BaseController {
 
     //注册页面
     public function index(){
-    
         if(formcheck('register')){
             loaducenter();
 
