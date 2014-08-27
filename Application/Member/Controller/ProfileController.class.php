@@ -15,15 +15,18 @@ class ProfileController extends BaseController {
     public function setBasicInfo(){
         if(M('member_profile')->where("mobile='%s'",$this->_G['member']['mobile'])->save($_POST)){
             $this->success("修改成功！");
+        }  else {
+            $this->error("修改失败！");
         }
     }
 
     //密码修改
     public function myPw(){
         if(formcheck('edit')){
+            // debug($this->_G['member']);
             // debug($_POST);
             loaducenter();
-            $pid = uc_user_edit(I('username'), I('oldpw'), I('newpw'),I('email'));
+            $pid = uc_user_edit(I('username'), I('oldpw'), I('newpw'));
             switch ($pid) {
                 case '0':
                     $return['msg']  = '没有做任何修改';
@@ -55,12 +58,11 @@ class ProfileController extends BaseController {
                     break;
                 default:
                     $memb = M('member')->where("username='%s'",$username)->find();
-                    if(!$memb){
-                        $data['username']   =   $username;
-                        $data['password']   =   hashmd5($password);
-                        M('member')->add($data);
+                    if($memb){
+                        $data['password']   =   hashmd5($newpw);
+                        M('member')->field('password')->add($data);
                     }
-                        $return['msg'] = '修改成功！';
+                        $return['msg'] = '密码修改成功！';
                         $return['err'] = false;
                         break;
             }

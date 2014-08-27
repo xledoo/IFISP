@@ -37,7 +37,7 @@
                 </div>
 				<div style="clear:both;"></div>
                 <form name="inform1" action="{:U('Member/Profile/myPw')}" method="post" class="inform1">
-                    <input type="hidden" name="formhash" value="{$formhash}" />
+                    <input type="hidden" name="formhash" value="{$formhash}">
                     <div class="row personal">
                         <div class="col-md-2">用户名</div>
                         <div class="col-md-6">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                     <div class="row personal" style="margin:50px 280px 20px;">
-                        <input type="submit" name="edit" value="修改">
+                        <input type="submit" name="edit" class="btn btn blue col-md-4" value="修改">
                         <!-- <button type="submit" class="btn btn blue col-md-4" name="edit" id="setinfo">修&nbsp;改</button>
                         <button type="button" class="btn default col-md-4">取&nbsp;消</button> -->
                     </div>
