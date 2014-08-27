@@ -154,6 +154,29 @@ contents menu
 	
 }
 
+.con-xy{
+	width:93px;
+	float:left;
+	border:1px solid #ccc;
+	background:#F8F8F8;
+	margin:1px;
+	padding:5px;
+	text-align:center;
+	border-bottom:none;
+	color:Black;
+}
+
+.con-xyh {
+	width:100px;
+	float:left;
+	margin:1px;
+	padding:5px;
+	text-align:center;
+	font-size:18px;
+	border-bottom:none;
+}
+
+
 /*
 central man
 */

@@ -1,0 +1,80 @@
+<!-- BEGIN PAGE CONTAINER -->  
+<div class="page-container">
+    <!-- BEGIN BREADCRUMBS -->   
+    <div class="row breadcrumbs margin-bottom-40">
+        <div class="container">
+            <div class="col-md-4 col-sm-4">
+                <h1>Register 会员注册</h1>
+            </div>
+            <div class="col-md-8 col-sm-8">
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="{:U('Home/Index/index')}">首页</a></li>
+                        <li><a href="{:U('Member/Index/index')}">会员中心</a></li>
+                        <li class="active">会员注册</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END BREADCRUMBS -->
+    <!-- BEGIN CONTAINER -->   
+    <div class="container min-hight portfolio-page margin-bottom-30">
+        <!-- BEGIN PORTFOLIO ITEM -->
+        <div class="row sidebar">
+        <!-- BEGIN CAROUSEL -->            
+            <div class="col-md-3">
+                <include file="Public:sidebar" />
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="page-rule">
+                        <div class="row lev">
+                            <div class="col-md-10 xinyong">
+                                <i class="fa fa-bar-chart-o"><span>我的信用等级:</span></i>
+                                <a href=""><i class="ico fas-d1"></i></a>
+                                <div class="jindu">
+                                    <a href=""><span>LVD1</span>
+                                    <div class="jindutiao"></div>
+                                    <span>LVD2</span></a>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <a href=""><i class="fa fa-search"><span>查看信用规则</span></i></a>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                        <div class="row cred" style="padding:30px 0px;">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-10">
+                                   <div class="newuser">新用户</div>
+                                   <div class="olduser">信用达人</div>
+                                </div>
+                                <div class="col-md-1"></div> 
+                            </div>
+                            <div class="row margin-top-10">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-10 LV">
+                                    <div class="row">
+                                        <div class="col-md-3 LVD">信用等级LVD</div>
+                                        <div class="col-md-3 LVC">信用等级LVC</div>
+                                        <div class="col-md-3 LVB">信用等级LVB</div>
+                                        <div class="col-md-3 LVA">信用等级LVA</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="con-me margin-top-20">
+                        <div class="con-xyh">信用中心</div>
+                        <a href="{:U('Member/Credit/index')}"><div class="con-xy other">信用等级</div></a>
+                        <div class="con-xy index" style="background: white;border-bottom:2px solid white;">认证中心</div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
