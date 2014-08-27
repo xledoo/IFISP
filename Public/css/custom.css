@@ -163,7 +163,7 @@ central man
 }
 
 .lev{
-	height:35px;
+	min-height:35px;
 	border-bottom:1px solid #ccc;
 	padding-top:5px;
 	margin:0px;
@@ -258,16 +258,16 @@ float:left;
 .page-rule .cred .right a{
 	font-size:12px;
 	color:black;
-	font-weight:900;
+	font-weight:800;
 }
 
 .page-rule .cred .right a span{
-	color:#8B0000;
+	color:#FFA500;
 	padding-left:110px;
 }
 
 .page-rule .cred .right a:hover{
-	color:#FFD700;
+	color:#FFA500;
 }
 
 .page-rec{
@@ -293,6 +293,102 @@ float:left;
 	margin: 0px;
 }
 
+.page-rule .cred .newuser,
+.page-rule .cred .olduser{;
+	font-size:14px;
+	color:#989898;
+}
+
+.page-rule .cred .newuser{
+	float:left;
+}
+
+.page-rule .cred .olduser{
+	text-align:right;
+}
+
+.page-rule .cred .LV{
+	border:1px solid #ccc;
+}
+.page-rule .cred .LV .LVD,
+.page-rule .cred .LV .LVC,
+.page-rule .cred .LV .LVB,
+.page-rule .cred .LV .LVA{
+	width: 25%;
+	float:left;
+	text-align: center;
+	font-size:10px;
+	color:white;
+	height:22px;
+	padding-top:2px;
+}
+
+.page-rule .cred .LV .LVD{
+	background-color:#D9534F;
+}
+
+.page-rule .cred .LV .LVC{
+	background-color:#F0AD4E;
+}
+
+.page-rule .cred .LV .LVB{
+	background-color:#5BC0DE;
+}
+
+.page-rule .cred .LV .LVA{
+	background-color:#5CB85C;
+}
+.sidebar .table table tbody{
+	border:1px solid #ccc;
+	border-bottom:none;
+	border-left:none;
+}
+
+.sidebar .table table .LVA{
+	background-color: #DFF0D8;
+}
+.sidebar .table table .LVA tr th:hover,
+.sidebar .table table .LVA tr:hover{
+	background-color: #D0E9C6;
+}
+
+.sidebar .table table .LVB{
+	background-color: #FFFFFF;
+}
+
+.sidebar .table table .LVB tr:hover{
+	background-color: #F5F5F5;
+}
+
+.sidebar .table table .LVC{
+	background-color: #FCF8E3;
+}
+
+.sidebar .table table .LVC tr:hover{
+	background-color: #FAF2CC;
+}
+
+.sidebar .table table .LVD{
+	background-color: #F2DEDE;
+}
+
+.sidebar .table table .LVD tr:hover{
+	background-color: #EBCCCC;
+}
+
+.sidebar .table table tbody tr th{
+	border-bottom:none;
+	background: none;
+	font-weight:100;
+	font-size:12px;
+	color:black;
+}
+
+.sidebar .table table tbody tr td{
+	padding: 5px 15px;
+	font-size: 12px;
+	line-height: 18px;
+}
 /*
 	forminfo
 */
