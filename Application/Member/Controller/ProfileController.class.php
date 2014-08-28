@@ -5,15 +5,15 @@ use Common\Controller\BaseController;
 class ProfileController extends BaseController {
     public function index(){
         $gm = $this->_G['member']['mobile'];
-        $data = M('member_old_profile')->where("mobile='%s'",$gm)->field('uid',true)->select();
-        M('member_profile')->where("mobile='%s'",$gm)->add($data[0]);
+        $data = M('member_old_profile')->where("mobile='%d'",$gm)->select();
+        M('member_profile')->where("mobile='%d'",$gm)->add($data[0]);
         $this->assign('memp',$data[0]);
     	$this->display();
     }
 
     //基本资料修改
     public function setBasicInfo(){
-        if(M('member_profile')->where("mobile='%s'",$this->_G['member']['mobile'])->save($_POST)){
+        if(M('member_profile')->where("mobile='%d'",$this->_G['member']['mobile'])->save($_POST)){
             $this->success("修改成功！");
         }  else {
             $this->error("修改失败！");
@@ -60,7 +60,7 @@ class ProfileController extends BaseController {
                     $memb = M('member')->where("username='%s'",$username)->find();
                     if($memb){
                         $data['password']   =   hashmd5($newpw);
-                        M('member')->field('password')->add($data);
+                        M('member')->field('password')->save($data);
                     }
                         $return['msg'] = '密码修改成功！';
                         $return['err'] = false;
