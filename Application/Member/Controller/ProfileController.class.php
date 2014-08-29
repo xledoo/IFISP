@@ -5,15 +5,22 @@ use Common\Controller\BaseController;
 class ProfileController extends BaseController {
     public function index(){
         $gm = $this->_G['member']['mobile'];
-        $data = M('member_old_profile')->where("mobile='%d'",$gm)->select();
-        M('member_profile')->where("mobile='%d'",$gm)->add($data[0]);
-        $this->assign('memp',$data[0]);
+        $memb = M('member_profile')->where("mobile='%s'",$gm)->find();
+        if(!$memb){
+            $data = M('member_old_profile')->where("mobile='%s'",$gm)->find();
+            M('member_profile')->where("mobile='%s'",$gm)->add($data);
+            // debug($data);
+        }
+        // debug($dot);
+        $this->assign('memp',$memb);
     	$this->display();
     }
 
     //基本资料修改
     public function setBasicInfo(){
-        if(M('member_profile')->where("mobile='%d'",$this->_G['member']['mobile'])->save($_POST)){
+        unset($_POST['edit']);
+        // debug($_POST);
+        if(M('member_profile')->where("mobile='%s'",$this->_G['member']['mobile'])->save($_POST)){
             $this->success("修改成功！");
         }  else {
             $this->error("修改失败！");
@@ -57,14 +64,14 @@ class ProfileController extends BaseController {
                     $return['err']  =   true;
                     break;
                 default:
-                    $memb = M('member')->where("username='%s'",$username)->find();
+                    $memb = M('member')->where("username='%s'",$_POST['username'])->find();
                     if($memb){
-                        $data['password']   =   hashmd5($newpw);
-                        M('member')->field('password')->save($data);
+                        $data['password']   =   hashmd5($_POST['newpw']);
+                        M('member')->where("username='%s'",$_POST['username'])->save($data);
                     }
-                        $return['msg'] = '密码修改成功！';
-                        $return['err'] = false;
-                        break;
+                    $return['msg'] = '密码修改成功！';
+                    $return['err'] = false;
+                    break;
             }
             if($return['err']){
                 $this->error($return['msg']);
