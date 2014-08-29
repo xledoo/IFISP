@@ -9,7 +9,6 @@ class ProfileController extends BaseController {
         if(!$memb){
             $data = M('member_old_profile')->where("mobile='%s'",$gm)->find();
             M('member_profile')->where("mobile='%s'",$gm)->add($data);
-            // debug($data);
         }
         // debug($dot);
         $this->assign('memp',$memb);
@@ -30,7 +29,6 @@ class ProfileController extends BaseController {
     //密码修改
     public function myPw(){
         if(formcheck('edit')){
-            // debug($this->_G['member']);
             // debug($_POST);
             loaducenter();
             $pid = uc_user_edit(I('username'), I('oldpw'), I('newpw'));
