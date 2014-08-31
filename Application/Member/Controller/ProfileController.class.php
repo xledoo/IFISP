@@ -99,10 +99,12 @@ class ProfileController extends BaseController {
     //我的头像
     public function myAva(){
         loaducenter();
-        if(uc_check_avatar(1)){
-            $pum = uc_avatar(1);
-        }
-        $this->assign('ava',$pum);
+        $mya['aid'] = $this->_G['member']['uid'];
+        $mya['uav'] = uc_avatar($this->_G['member']['uid']);
+     //    if(uc_check_avatar(1)){
+     //        $pum = uc_avatar(1);
+     //    }
+        $this->assign('ava',$mya);
     	$this->display();
     }
 
