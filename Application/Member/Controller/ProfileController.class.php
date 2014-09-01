@@ -19,8 +19,8 @@ class ProfileController extends BaseController {
 
     //基本资料修改
     public function setBasicInfo(){
-        unset($_POST['edit']);
         // debug($_POST);
+        unset($_POST['edit']);
         if(M('member_profile')->where("mobile='%s'",$this->_G['member']['mobile'])->save($_POST)){
             $this->success("修改成功！");
         }  else {
@@ -93,7 +93,10 @@ class ProfileController extends BaseController {
     public function myInte(){
         // debug($this->_G['member']);
         // debug($_POST);
-    	$this->display();
+        $gm = $this->_G['member']['mobile'];
+        $memb = M('member')->where("mobile='%s'",$gm)->find();
+        $this->assign('memo',$memb);
+        $this->display();
     }
 
     //我的头像
