@@ -100,8 +100,8 @@
                 if(val.length < 6 || val.length > 20){
                     message_box(true, '密码必须为 6-20 位的字符串');
                     changeError(id);
-                }else if(val != jQuery('#oldpw').val()){
-                    message_box(true, '两次输入的密码不一致 请重新输入');
+                }else if(val == jQuery('#oldpw').val()){
+                    message_box(true, '两次输入的密码不能一致 请重新输入');
                     changeError(id);
                 }else {
                     message_box(0);
