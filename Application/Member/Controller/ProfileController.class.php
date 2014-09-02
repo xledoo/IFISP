@@ -12,14 +12,16 @@ class ProfileController extends BaseController {
             $data = M('member_old_profile')->where("mobile='%s'",$gm)->find();
             M('member_profile')->where("mobile='%s'",$gm)->add($data);
         }
-        // debug($dot);
+        $province = M('Region')->where ( array('pid'=>1) )->select ();
+        $this->assign('province',$province);
+
         $this->assign('memp',$memb);
     	$this->display();
     }
 
     //基本资料修改
     public function setBasicInfo(){
-        // debug($_POST);
+        debug($_POST);
         unset($_POST['edit']);
         if(M('member_profile')->where("mobile='%s'",$this->_G['member']['mobile'])->save($_POST)){
             $this->success("修改成功！");
@@ -28,6 +30,15 @@ class ProfileController extends BaseController {
         }
     }
 
+    //三级联动
+    public function getRegion(){
+        $Region=M("Region");
+        $map['pid']=$_REQUEST["pid"];
+        $map['type']=$_REQUEST["type"];
+        $list=$Region->where($map)->select();
+        echo json_encode($list);
+    }
+    
     //我的密码
     public function myPw(){
         if(formcheck('edit')){

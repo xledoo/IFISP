@@ -113,9 +113,38 @@
                     <div class="row personal">
                         <div class="col-md-2">出生地</div>
                         <div class="col-md-6">
-                            <select name="birthprovince"></select>
-                            <select name="birthcity"></select>
-                            <select name="birthdist"></select>
+                            <select name="birthprovince" id="birthprovince" onchange="loadRegion('birthprovince',2,'birthcity','{:U('Profile/getRegion')}');">
+                                <option value="0" selected>省份/直辖市</option><volist name="province" id="vo"> 
+                                <option value="{$vo.id}" >{$vo.name}</option></volist>
+                            </select>          
+                            <select name="birthcity" id="birthcity"  onchange="loadRegion('birthcity',3,'birthdist','{:U('Profile/getRegion')}');">
+                               <option value="0">市/县</option>
+                            </select>
+                            <select name="birthdist" id="birthdist">
+                               <option value="0">镇/区</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="">
+                                <option value="0">公开</option>
+                                <option value="1">好友可见</option>
+                                <option value="2">保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">现居地</div>
+                        <div class="col-md-6">
+                            <select name="resideprovince" id="resideprovince" onchange="loadRegion('resideprovince',2,'residecity','{:U('Profile/getRegion')}');">
+                                <option value="0" selected>省份/直辖市</option><volist name="province" id="vo"> 
+                                <option value="{$vo.id}" >{$vo.name}</option></volist>
+                            </select>          
+                            <select name="residecity" id="residecity"  onchange="loadRegion('residecity',3,'residedist','{:U('Profile/getRegion')}');">
+                               <option value="0">市/县</option>
+                            </select>
+                            <select name="residedist" id="residedist">
+                               <option value="0">镇/区</option>
+                            </select>
                         </div>
                         <div class="col-md-2">
                             <select name="">
@@ -225,8 +254,27 @@
     </div>
 </div>
 
-<script language="javascript" defer>
-    new PCAS("birthprovince","birthcity","birthdist");
+<script language="javascript">
+    function loadRegion(sel,type_id,selName,url){
+        jQuery("#"+selName+" option").each(function(){
+            jQuery(this).remove();
+        });
+        jQuery("<option value=0>请选择</option>").appendTo(jQuery("#"+selName));
+        if(jQuery("#"+sel).val()==0){
+            return;
+        }
+        jQuery.getJSON(url,{pid:jQuery("#"+sel).val(),type:type_id},
+            function(data){
+                if(data){
+                    jQuery.each(data,function(idx,item){
+                        jQuery("<option value="+item.id+">"+item.name+"</option>").appendTo(jQuery("#"+selName));
+                    });
+                }else{
+                    jQuery("<option value='0'>请选择</option>").appendTo(jQuery("#"+selName));
+                }
+            }
+        );
+    }
 </script>
 
 
