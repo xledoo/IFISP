@@ -21,7 +21,7 @@ class ProfileController extends BaseController {
 
     //基本资料修改
     public function setBasicInfo(){
-        debug($_POST);
+        // debug($_POST);
         unset($_POST['edit']);
         if(M('member_profile')->where("mobile='%s'",$this->_G['member']['mobile'])->save($_POST)){
             $this->success("修改成功！");

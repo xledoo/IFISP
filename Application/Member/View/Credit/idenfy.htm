@@ -140,25 +140,15 @@
                                 </div>
                                 <div class="margin-top-10">
                                     <label>工作地点</label>
-                                    <select>
-                                        <option>-省/市-</option>
-                                        <option>-省/市-</option>
-                                        <option>-省/市-</option>
+                                    <select name="workprovince" id="workprovince" onchange="loadRegion('workprovince',2,'workcity','{:U('Profile/getRegion')}');">
+                                        <option value="0" selected>省份/直辖市</option><volist name="province" id="vo"> 
+                                        <option value="{$vo.id}" >{$vo.name}</option></volist>
+                                    </select>          
+                                    <select name="workcity" id="workcity"  onchange="loadRegion('workcity',3,'workdist','{:U('Profile/getRegion')}');">
+                                       <option value="0">市/县</option>
                                     </select>
-                                    <select>
-                                        <option>-市/州-</option>
-                                        <option>-省/市-</option>
-                                        <option>-省/市-</option>
-                                    </select>
-                                    <select>
-                                        <option>--县--</option>
-                                        <option>-省/市-</option>
-                                        <option>-省/市-</option>
-                                    </select>
-                                    <select>
-                                        <option>-镇-</option>
-                                        <option>-省/市-</option>
-                                        <option>-省/市-</option>
+                                    <select name="workdist" id="workdist">
+                                       <option value="0">镇/区</option>
                                     </select>
                                 </div>
                             </div>
@@ -244,3 +234,26 @@
         </div>
     </div>
 </div>
+
+<script language="javascript">
+    function loadRegion(sel,type_id,selName,url){
+        jQuery("#"+selName+" option").each(function(){
+            jQuery(this).remove();
+        });
+        jQuery("<option value=0>请选择</option>").appendTo(jQuery("#"+selName));
+        if(jQuery("#"+sel).val()==0){
+            return;
+        }
+        jQuery.getJSON(url,{pid:jQuery("#"+sel).val(),type:type_id},
+            function(data){
+                if(data){
+                    jQuery.each(data,function(idx,item){
+                        jQuery("<option value="+item.id+">"+item.name+"</option>").appendTo(jQuery("#"+selName));
+                    });
+                }else{
+                    jQuery("<option value='0'>请选择</option>").appendTo(jQuery("#"+selName));
+                }
+            }
+        );
+    }
+</script>
