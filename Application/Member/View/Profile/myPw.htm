@@ -37,6 +37,7 @@
                 </div>
 				<div style="clear:both;"></div>
                 <form name="inform1" action="{:U('Member/Profile/myPw')}" method="post" class="inform1">
+                    <input type="hidden" name="formhash" value="{$formhash}">
                     <div class="row personal">
                         <div class="col-md-2">用户名</div>
                         <div class="col-md-6">
@@ -51,7 +52,7 @@
                         <div class="col-md-6">
                             <div class="input-icon input-medium margin-top-5">
                                 <i class="fa fa-lock"></i>
-                                <input type="password" class="form-control" name="oldpw">
+                                <input type="password" class="form-control" name="oldpw" id="oldpw">
                             </div>
                         </div>
                     </div>
@@ -60,13 +61,19 @@
                         <div class="col-md-6">
                             <div class="input-icon input-medium margin-top-5">
                                 <i class="fa fa-lock"></i>
-                                <input type="password" class="form-control" name="newpw">
+                                <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" name="newpw" id="newpw">
                             </div>
                         </div>
+                        
+                        <div class="col-md-6 alert alert-danger" role="alert" id="message_box" style="display:none;">
+                                <i class="fa fa-warning"></i>
+                                <span id="message_return"></span>
+                            </div>
                     </div>
                     <div class="row personal" style="margin:50px 280px 20px;">
-                        <button type="submit" class="btn btn blue col-md-4" name="edit" id="setinfo">修&nbsp;改</button>
-                        <button type="button" class="btn default col-md-4">取&nbsp;消</button>
+                        <input type="submit" name="edit" class="btn btn blue col-md-4" value="修改">
+                        <!-- <button type="submit" class="btn btn blue col-md-4" name="edit" id="setinfo">修&nbsp;改</button>
+                        <button type="button" class="btn default col-md-4">取&nbsp;消</button> -->
                     </div>
                 </form>
                 </div>
@@ -74,3 +81,28 @@
         </div>
     </div>
 </div>
+
+
+
+<script type="text/javascript">
+    function ajax_chck(id,  val){
+        if (id == "newpw") {
+            if (this.val == jQuery("#oldpw").val()) {
+                message_box(true, '两次输入的密码重复 请重新输入');
+                changeError(id);
+            };
+        };
+    }
+    function changeSuccess(id){
+        jQuery("#" + id).parent().removeClass('has-error');
+        jQuery("#" + id).parent().addClass('has-success');
+    }
+    function changeError(id){
+        jQuery("#" + id).parent().removeClass('has-success');
+        jQuery("#" + id).parent().addClass('has-error');
+    }
+    function message_box(error, message){
+        error ? jQuery("#message_box").show() : jQuery("#message_box").hide();
+        jQuery('#message_return').html(message);
+    }
+</script>

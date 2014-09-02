@@ -37,6 +37,7 @@
                 </div>
                 <div style="clear:both;"></div>
                 <form name="inform1" action="{:U('Member/Profile/setBasicInfo')}" method="post" class="inform1">
+                    
                     <div class="row personal">
                         <div class="col-md-2">用户名</div>
                         <div class="col-md-6">
@@ -87,9 +88,131 @@
                         </div>
                     </div>
                     <div class="row personal">
+                        <div class="col-md-2">出生年月</div>
+                        <div class="col-md-6">
+                            
+                                <select name=birthyear onchange="BYD(this.value)">
+                                    <option value="">请选择</option>
+                                </select>
+                                <select name=birthmonth onchange="BMD(this.value)">
+                                    <option value="">请选择</option>
+                                </select>
+                                <select name=birthday>
+                                    <option value="">请选择</option>
+                                </select>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <select name="">
+                                <option value="0">公开</option>
+                                <option value="1">好友可见</option>
+                                <option value="2">保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">出生地</div>
+                        <div class="col-md-6">
+                            <select name="birthprovince" id="birthprovince" onchange="loadRegion('birthprovince',2,'birthcity','{:U('Profile/getRegion')}');">
+                                <option value="0" selected>省份/直辖市</option><volist name="province" id="vo"> 
+                                <option value="{$vo.id}" >{$vo.name}</option></volist>
+                            </select>          
+                            <select name="birthcity" id="birthcity"  onchange="loadRegion('birthcity',3,'birthdist','{:U('Profile/getRegion')}');">
+                               <option value="0">市/县</option>
+                            </select>
+                            <select name="birthdist" id="birthdist">
+                               <option value="0">镇/区</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="">
+                                <option value="0">公开</option>
+                                <option value="1">好友可见</option>
+                                <option value="2">保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">现居地</div>
+                        <div class="col-md-6">
+                            <select name="resideprovince" id="resideprovince" onchange="loadRegion('resideprovince',2,'residecity','{:U('Profile/getRegion')}');">
+                                <option value="0" selected>省份/直辖市</option><volist name="province" id="vo"> 
+                                <option value="{$vo.id}" >{$vo.name}</option></volist>
+                            </select>          
+                            <select name="residecity" id="residecity"  onchange="loadRegion('residecity',3,'residedist','{:U('Profile/getRegion')}');">
+                               <option value="0">市/县</option>
+                            </select>
+                            <select name="residedist" id="residedist">
+                               <option value="0">镇/区</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="">
+                                <option value="0">公开</option>
+                                <option value="1">好友可见</option>
+                                <option value="2">保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">星座</div>
+                        <div class="col-md-6">
+                            <select name="constellation">
+                                <option value="">请选择</option>
+                                <option>白羊座</option>
+                                <option>金牛座</option>
+                                <option>双子座</option>
+                                <option>巨蟹座</option>
+                                <option>狮子座</option>
+                                <option>处女座</option>
+                                <option>天平座</option>
+                                <option>天蝎座</option>
+                                <option>射手座</option>
+                                <option>摩羯座</option>
+                                <option>水平座</option>
+                                <option>双鱼座</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="">
+                                <option value="0">公开</option>
+                                <option value="1">好友可见</option>
+                                <option value="2">保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
+                        <div class="col-md-2">生肖</div>
+                        <div class="col-md-6">
+                            <select name="zodiac">
+                                <option value="">请选择</option>
+                                <option>鼠</option>
+                                <option>牛</option>
+                                <option>虎</option>
+                                <option>兔</option>
+                                <option>龙</option>
+                                <option>蛇</option>
+                                <option>马</option>
+                                <option>羊</option>
+                                <option>猴</option>
+                                <option>鸡</option>
+                                <option>狗</option>
+                                <option>猪</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <select name="">
+                                <option value="0">公开</option>
+                                <option value="1">好友可见</option>
+                                <option value="2">保密</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row personal">
                         <div class="col-md-2">血型</div>
                         <div class="col-md-6">
                             <select name="bloodtype">
+                                <option value="">请选择</option>
                                 <option value="0">A</option>
                                 <option value="1">B</option>
                                 <option value="2">AB</option>
@@ -121,11 +244,82 @@
                         </div>
                     </div>
                     <div class="row personal" style="margin:50px 280px 20px;">
-                        <button type="submit" class="btn btn blue col-md-4" id="setinfo">保&nbsp;存</button>
-                        <button type="button" class="btn default col-md-4">取&nbsp;消</button>
+                        <input type="submit" name="edit" class="btn btn blue col-md-4" value="修改">
+                        <!-- <button type="submit" class="btn btn blue col-md-4" id="setinfo">保&nbsp;存</button>
+                        <button type="button" class="btn default col-md-4">取&nbsp;消</button> -->
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<script language="javascript">
+    function loadRegion(sel,type_id,selName,url){
+        jQuery("#"+selName+" option").each(function(){
+            jQuery(this).remove();
+        });
+        jQuery("<option value=0>请选择</option>").appendTo(jQuery("#"+selName));
+        if(jQuery("#"+sel).val()==0){
+            return;
+        }
+        jQuery.getJSON(url,{pid:jQuery("#"+sel).val(),type:type_id},
+            function(data){
+                if(data){
+                    jQuery.each(data,function(idx,item){
+                        jQuery("<option value="+item.id+">"+item.name+"</option>").appendTo(jQuery("#"+selName));
+                    });
+                }else{
+                    jQuery("<option value='0'>请选择</option>").appendTo(jQuery("#"+selName));
+                }
+            }
+        );
+    }
+</script>
+
+
+
+<script language="JavaScript"><!--
+    function birthyearbirthmonthbirthdaystart() {
+        MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        //先给年下拉框赋内容
+        var y = new Date().getFullYear();
+        for (var i = (y-80); i < (y+1); i++) //以今年为准，前30年，后30年
+        document.inform1.birthyear.options.add(new Option(" "+ i +" 年", i));
+
+        //赋月份的下拉框
+        for (var i = 1; i < 13; i++)
+        document.inform1.birthmonth.options.add(new Option(" " + i + " 月", i));
+
+        document.inform1.birthyear.value = y;
+        document.inform1.birthmonth.value = new Date().getMonth() + 1;
+        var n = MonHead[new Date().getMonth()];
+        if (new Date().getMonth() ==1 && IsPinYear(birthyearvalue)) n++;
+        writeDay(n); //赋日期下拉框Author:meizz
+        document.inform1.birthday.value = new Date().getDate();
+    }
+    if(document.attachEvent)
+    window.attachEvent("onload", birthyearbirthmonthbirthdaystart);
+    else
+    window.addEventListener('load', birthyearbirthmonthbirthdaystart, false);
+    function BYD(str) //年发生变化时日期发生变化(主要是判断闰平年)
+    {
+        var birthmonthvalue = document.inform1.birthmonth.options[document.inform1.birthmonth.selectedIndex].value;
+        if (birthmonthvalue == ""){ var e = document.form1.birthday; optionsClear(e); return;}
+        var n = MonHead[birthmonthvalue - 1];
+        if (birthmonthvalue ==2 && IsPinYear(str)) n++;
+        writeDay(n)
+    }
+    function BMD(str) //月发生变化时日期联动
+    {
+        var birthyearvalue = document.inform1.birthyear.options[document.inform1.birthyear.selectedIndex].value;
+        if (birthyearvalue == ""){ var e = document.inform1.birthday; optionsClear(e); return;}
+        var n = MonHead[str - 1];
+        if (str ==2 && IsPinYear(birthyearvalue)) n++;
+        writeDay(n)
+    }
+    function writeDay(n) {var e = document.inform1.birthday; optionsClear(e);for (var i=1; i<(n+1); i++) e.options.add(new Option(" "+ i + " 日", i));}//据条件写日期的下拉框
+    function IsPinYear(year) { return(0 == year%4 && (year%100 !=0 || year%400 == 0));}//判断是否闰平年
+    function optionsClear(e) {e.options.length = 1;}
+</script>
