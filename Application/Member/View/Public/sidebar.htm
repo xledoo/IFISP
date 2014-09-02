@@ -6,9 +6,13 @@
                             <a href="#"><div class="sidebar-adc"><i class="fa fa-heart" ></i></div></a>
                             <a href="#"><div class="sidebar-adc"><i class="fa fa-tablet" ></i></div></a>
                             <a href="#"><div class="sidebar-adc"><i class="fa fa-lock" ></i></div></a>
-                            <a href="#"><div class="sidebar-adc"><i class="fa fa-user" ></i></div></a>
+                            <a href="{:U('Member/Profile/index')}"><div class="sidebar-adc"><i class="fa fa-user" ></i></div></a>
                         </div>
-                        <div class="sidebar-adv"><img src="http://localhost/ucenter/avatar.php?uid={$_G['member']['uid']}&size=middle" /></div>
+                        <a href="{:U('Member/Profile/index')}">
+                            <div class="sidebar-adv">
+                                <img src="http://localhost/ucenter/avatar.php?uid={$_G['member']['uid']}&size=middle" />
+                            </div>
+                        </a>
                     </div>
                     <div class="sidebar-lv">
                         <div class="sidebar-rd1">会员等级:&nbsp;<span>新手上路</span>&nbsp;</div>
