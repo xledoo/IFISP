@@ -228,6 +228,7 @@ contents menu
 .certification i span{
 	color:#989898;
 }
+
 /*
 central man
 */
@@ -253,10 +254,57 @@ central man
 }
 
 .container .sidebar .borrow{
-	border:1px solid #ccc;
-	background-color:#FFFBE2;
+	background-color:#F8F8F8;
 }
 
+.container .sidebar .borrow .loanheader{
+	border:1px solid #ccc;
+	border-bottom:none;
+	margin:0px;
+	padding:0px;
+}
+
+.container .sidebar .borrow .loanheader h4{
+	color:#989898;
+}
+
+.container .sidebar .borrow .loanheader input{
+	width:80px;
+	height:20px;
+	font-size:12px;
+	background-color: #D9534F;
+	border-style:none;
+	margin-top:10px;
+}
+
+.container .sidebar .borrow .content{
+	border:1px solid #ccc;
+	margin:0px;
+	padding:0px;
+	min-height:80px;
+}
+.container .sidebar .borrow .content h4,
+.container .sidebar .borrow .content h5{
+	color:#989898;
+}
+
+.container .sidebar .borrow .content span{
+	color:#989898;
+	font-size:14px;
+}
+.container .sidebar .borrow .content .total span{
+	color:#FF6600;
+	font-size:18px;
+}
+
+.container .sidebar .borrow .table{
+	padding:0px;
+	margin:0px;
+}
+.container .sidebar .borrow .table table thead tr th{
+	font-weight:100;
+	color:#989898;
+}
 /*
 	Member/Index/index
 */
