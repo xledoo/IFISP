@@ -176,7 +176,11 @@
 
 .ico {
 	width: 81px;
+	-ms-width: 82px;
+	-webkit-width:81px;
 	height: 20px;
+	-webkit-height:20px;
+	-ms-height:23px;
 	padding:0px;
 	margin: 0px;
 }
