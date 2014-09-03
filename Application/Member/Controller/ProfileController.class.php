@@ -131,7 +131,22 @@ class ProfileController extends BaseController {
     }
 
     public function other(){
-    	$this->display();
+        // $ip = get_client_ip();
+        // // import('Org.Net.IpLocation');
+        // $Ip = new \Org\Net\IpLocation('UTFWry.dat'); // 实例化类 参数表示IP地址库文件
+        // $area = $Ip->getlocation('112.168.12.1'); // 获取某个IP地址所在的位置
+        // debug($area);
+
+        $Verify = new \Think\Verify();
+        $Verify->fontSize = 30;
+        $Verify->length   = 4;
+        $Verify->useNoise = false;
+        $Verify->fontttf = '5.ttf';
+        // $Verify->useImgBg = true;
+        // $Verify->codeSet = '0123456789'; 
+
+        $Verify->entry();
+    	// $this->display();
     }
 
 }
