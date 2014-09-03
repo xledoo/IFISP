@@ -4,13 +4,13 @@
     <div class="row breadcrumbs margin-bottom-40">
         <div class="container">
             <div class="col-md-4 col-sm-4">
-                <h1>Register 会员注册</h1>
+                <h1>个人资料</h1>
             </div>
             <div class="col-md-8 col-sm-8">
                     <ul class="pull-right breadcrumb">
                         <li><a href="{:U('Home/Index/index')}">首页</a></li>
                         <li><a href="{:U('Member/Index/index')}">会员中心</a></li>
-                        <li class="active">会员注册</li>
+                        <li class="active">个人资料</li>
                     </ul>
             </div>
         </div>
@@ -40,7 +40,7 @@
                     <input type="hidden" name="formhash" value="{$formhash}">
                     <div class="row personal">
                         <div class="col-md-2">用户名</div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="input-icon input-medium margin-top-5">
                                 <i class="fa fa-user"></i>
                                 <input type="text" class="form-control" name="username" value="{$_G['member']['username']}" readonly="">
@@ -48,28 +48,28 @@
                         </div>
                     </div>
                     <div class="row personal">
-                        <div class="col-md-2">原密码</div>
-                        <div class="col-md-6">
+                        <div class="col-md-2">原登录密码</div>
+                        <div class="col-md-4">
                             <div class="input-icon input-medium margin-top-5">
                                 <i class="fa fa-lock"></i>
-                                <input type="password" class="form-control" name="oldpw" id="oldpw">
+                                <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" name="oldpw" id="oldpw">
                             </div>
                         </div>
                     </div>
                     <div class="row personal">
-                        <div class="col-md-2">新密码</div>
-                        <div class="col-md-6">
+                        <div class="col-md-2">新登录密码</div>
+                        <div class="col-md-4">
                             <div class="input-icon input-medium margin-top-5">
                                 <i class="fa fa-lock"></i>
                                 <input type="password" class="form-control" onblur="ajax_check(this.id, this.value);" name="newpw" id="newpw">
                             </div>
                         </div>
-                        
-                        <div class="col-md-6 alert alert-danger" role="alert" id="message_box" style="display:none;">
-                                <i class="fa fa-warning"></i>
-                                <span id="message_return"></span>
-                            </div>
+                        <div class="col-md-4 alert-danger" role="alert" id="message_box" style="display:none;">
+                            <i class="fa fa-warning"></i>
+                            <span id="message_return"></span>
+                        </div>
                     </div>
+                    
                     <div class="row personal" style="margin:50px 280px 20px;">
                         <input type="submit" name="edit" class="btn btn blue col-md-4" value="修改">
                         <!-- <button type="submit" class="btn btn blue col-md-4" name="edit" id="setinfo">修&nbsp;改</button>
@@ -85,13 +85,30 @@
 
 
 <script type="text/javascript">
-    function ajax_chck(id,  val){
-        if (id == "newpw") {
-            if (this.val == jQuery("#oldpw").val()) {
-                message_box(true, '两次输入的密码重复 请重新输入');
-                changeError(id);
-            };
-        };
+    function ajax_check(id,  val){
+        if(id == 'oldpw' || id == 'newpw'){
+            if(id == 'oldpw'){
+                if(val.length < 6 || val.length > 20){
+                    message_box(true, '密码必须为 6-20 位的字符串');
+                    changeError(id);
+                } else {
+                    message_box(0);
+                    changeSuccess(id);
+                }
+            }
+            if(id == 'newpw'){
+                if(val.length < 6 || val.length > 20){
+                    message_box(true, '密码必须为 6-20 位的字符串');
+                    changeError(id);
+                }else if(val == jQuery('#oldpw').val()){
+                    message_box(true, '两次输入的密码不能一致 请重新输入');
+                    changeError(id);
+                }else {
+                    message_box(0);
+                    changeSuccess(id);
+                }
+            }
+        }
     }
     function changeSuccess(id){
         jQuery("#" + id).parent().removeClass('has-error');
