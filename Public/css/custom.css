@@ -265,7 +265,7 @@ central man
 }
 
 .container .sidebar .borrow .loanheader h4{
-	color:#989898;
+	
 }
 
 .container .sidebar .borrow .loanheader input{
@@ -283,7 +283,10 @@ central man
 	padding:0px;
 	min-height:80px;
 }
-.container .sidebar .borrow .content h4,
+.container .sidebar .borrow .content h4{
+	color:#989898;
+	font-size: 16px;
+}
 .container .sidebar .borrow .content h5{
 	color:#989898;
 }
@@ -303,7 +306,6 @@ central man
 }
 .container .sidebar .borrow .table table thead tr th{
 	font-weight:100;
-	color:#989898;
 }
 /*
 	Member/Index/index
